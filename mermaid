@@ -1,0 +1,16 @@
+flowchart TD
+    A[Configuration] -- Timeframe\n Multiplcation\nAuto-Debugger\nSubstitution -->B(Detect Data Source)
+    B --> C(Normalize Data)
+    C --> D(Import Data into SQLite)
+    D --> E(Pull next X records from SQLite)
+    E --> I(Has Data)
+    I --> F(Send Request to Application)
+    F --> L(Failed Request)
+    F --> M(Successful Request)
+    L -. Buffer in output .-> J
+    M -. Buffer in output .-> J
+    L -. Suggest configuration to \n replicate failed request .->A
+    F --> G(Delete X records from SQLite)
+    G --> E
+    E --> H(No data)
+    H --> J(Output request results)
