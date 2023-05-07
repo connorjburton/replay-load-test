@@ -1,0 +1,69 @@
+{
+  "type": "array",
+  "length": 1,
+  "content": {
+    "type": "object",
+    "date": {
+      "type": "series",
+      "format": "%d/%b/%Y:%H:%M:%S",
+      "poisson": {
+        "start": "10/Oct/2000:13:55:36",
+        "rate": "10m"
+      }
+    },
+    "host": {
+      "type": "string",
+      "faker": {
+        "generator": "ipv4"
+      }
+    },
+    "ident": {
+      "type": "string",
+      "pattern": "-"
+    },
+    "authuser": {
+      "type": "string",
+      "faker": {
+        "generator": "first_name"
+      }
+    },
+    "request": {
+      "type": "string",
+      "format": {
+        "format": "{http_method} /{endpoint} HTTP/1.0",
+        "arguments": {
+          "http_method": {
+            "type": "string",
+            "categorical": {
+              "GET": 1,
+              "PUT": 1,
+              "POST": 1,
+              "PATCH": 1
+            }
+          },
+          "endpoint": {
+            "type": "string",
+            "faker": {
+              "generator": "file_name"
+            }
+          }
+        }
+      }
+    },
+    "status": {
+      "type": "number",
+      "categorical": {
+        "200": 8,
+        "404": 1,
+        "500": 1
+      }
+    },
+    "bytes": {
+      "type": "number",
+      "range": {
+        "low": 1,
+        "high": 1048576
+      }
+    }
+  }
+}
