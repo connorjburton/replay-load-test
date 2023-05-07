@@ -4,7 +4,7 @@ To run the script, first you need to build the image
 
 Then you can run this script with a volume mount to retrieve the output data in the `./data` folder.
 
-`docker run -v %cd%:/gen gen-fake`
+`docker run -v %cd%:/gen generate-fake-data`
 
 If on MacOS you can swap out `%cd%` for `$PWD`
 
