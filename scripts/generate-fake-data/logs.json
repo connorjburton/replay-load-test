@@ -3,6 +3,30 @@
   "length": 1,
   "content": {
     "type": "object",
+    "url": {
+      "type": "object",
+      "path": {
+        "type": "string",
+        "faker": {
+          "generator": "file_name"
+        }
+      }
+    },
+    "http": {
+      "type": "object",
+      "request": {
+        "type": "object",
+        "method": {
+          "type": "string",
+          "categorical": {
+            "GET": 1,
+            "PUT": 1,
+            "POST": 1,
+            "PATCH": 1
+          }
+        }
+      }
+    },
     "date": {
       "type": "series",
       "format": "%d/%b/%Y:%H:%M:%S",
