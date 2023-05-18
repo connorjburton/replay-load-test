@@ -1,0 +1,2570 @@
+{
+    "parent": {
+        "id": "70e7370cd897ad79"
+    },
+    "agent": {
+        "name": "nodejs",
+        "version": "3.3.0"
+    },
+    "processor": {
+        "name": "transaction",
+        "event": "span"
+    },
+    "observer": {
+        "hostname": "a0686cf97d5e",
+        "id": "5801254e-dae1-40ea-90f0-3659410676e3",
+        "ephemeral_id": "a527158d-183f-4d55-b988-7e7551c00e1f",
+        "type": "apm-server",
+        "version": "8.0.0",
+        "version_major": 8
+    },
+    "trace": {
+        "id": "93faed0b7687ff5e4fa353736641d28c"
+    },
+    "@timestamp": "2020-02-13T23:05:22.009Z",
+    "ecs": {
+        "version": "1.4.0"
+    },
+    "service": {
+        "environment": "production",
+        "name": "opbeans-node"
+    },
+    "transaction": {
+        "id": "70e7370cd897ad79"
+    },
+    "timestamp": {
+        "us": 1581635122009178
+    },
+    "span": {
+        "duration": {
+            "us": 54365
+        },
+        "stacktrace": [
+            {
+                "library_frame": false,
+                "exclude_from_grouping": false,
+                "filename": "server.js",
+                "abs_path": "/app/server.js",
+                "line": {
+                    "number": 101,
+                    "context": "  var clientReq = http.request(opts)"
+                },
+                "function": "<anonymous>",
+                "context": {
+                    "pre": [
+                        "  req.log.debug('proxying request: %s => %s:%s', req.originalUrl, opts.hostname, opts.port + opts.path)",
+                        ""
+                    ],
+                    "post": [
+                        "",
+                        "  clientReq.on('response', clientRes => {"
+                    ]
+                }
+            },
+            {
+                "exclude_from_grouping": false,
+                "library_frame": true,
+                "filename": "node_modules/express/lib/router/layer.js",
+                "abs_path": "/app/node_modules/express/lib/router/layer.js",
+                "line": {
+                    "number": 95
+                },
+                "function": "handle"
+            },
+            {
+                "library_frame": true,
+                "exclude_from_grouping": false,
+                "filename": "node_modules/express/lib/router/index.js",
+                "abs_path": "/app/node_modules/express/lib/router/index.js",
+                "line": {
+                    "number": 317
+                },
+                "function": "trim_prefix"
+            },
+            {
+                "library_frame": true,
+                "exclude_from_grouping": false,
+                "filename": "node_modules/express/lib/router/index.js",
+                "abs_path": "/app/node_modules/express/lib/router/index.js",
+                "line": {
+                    "number": 284
+                },
+                "function": "<anonymous>"
+            },
+            {
+                "library_frame": true,
+                "exclude_from_grouping": false,
+                "filename": "node_modules/express/lib/router/index.js",
+                "abs_path": "/app/node_modules/express/lib/router/index.js",
+                "line": {
+                    "number": 335
+                },
+                "function": "process_params"
+            },
+            {
+                "library_frame": true,
+                "exclude_from_grouping": false,
+                "filename": "node_modules/express/lib/router/index.js",
+                "abs_path": "/app/node_modules/express/lib/router/index.js",
+                "line": {
+                    "number": 275
+                },
+                "function": "next"
+            },
+            {
+                "library_frame": true,
+                "exclude_from_grouping": false,
+                "filename": "node_modules/express/lib/router/index.js",
+                "abs_path": "/app/node_modules/express/lib/router/index.js",
+                "line": {
+                    "number": 635
+                },
+                "function": "<anonymous>"
+            },
+            {
+                "library_frame": true,
+                "exclude_from_grouping": false,
+                "filename": "node_modules/express/lib/router/index.js",
+                "abs_path": "/app/node_modules/express/lib/router/index.js",
+                "line": {
+                    "number": 260
+                },
+                "function": "next"
+            },
+            {
+                "library_frame": true,
+                "exclude_from_grouping": false,
+                "filename": "node_modules/express/lib/router/index.js",
+                "abs_path": "/app/node_modules/express/lib/router/index.js",
+                "line": {
+                    "number": 174
+                },
+                "function": "handle"
+            },
+            {
+                "library_frame": true,
+                "exclude_from_grouping": false,
+                "filename": "node_modules/express/lib/router/index.js",
+                "abs_path": "/app/node_modules/express/lib/router/index.js",
+                "line": {
+                    "number": 47
+                },
+                "function": "router"
+            },
+            {
+                "library_frame": true,
+                "exclude_from_grouping": false,
+                "filename": "node_modules/express/lib/router/layer.js",
+                "abs_path": "/app/node_modules/express/lib/router/layer.js",
+                "line": {
+                    "number": 95
+                },
+                "function": "handle"
+            },
+            {
+                "library_frame": true,
+                "exclude_from_grouping": false,
+                "filename": "node_modules/express/lib/router/index.js",
+                "abs_path": "/app/node_modules/express/lib/router/index.js",
+                "line": {
+                    "number": 317
+                },
+                "function": "trim_prefix"
+            },
+            {
+                "library_frame": true,
+                "exclude_from_grouping": false,
+                "filename": "node_modules/express/lib/router/index.js",
+                "abs_path": "/app/node_modules/express/lib/router/index.js",
+                "line": {
+                    "number": 284
+                },
+                "function": "<anonymous>"
+            },
+            {
+                "library_frame": true,
+                "exclude_from_grouping": false,
+                "filename": "node_modules/express/lib/router/index.js",
+                "abs_path": "/app/node_modules/express/lib/router/index.js",
+                "line": {
+                    "number": 335
+                },
+                "function": "process_params"
+            },
+            {
+                "exclude_from_grouping": false,
+                "library_frame": true,
+                "filename": "node_modules/express/lib/router/index.js",
+                "abs_path": "/app/node_modules/express/lib/router/index.js",
+                "line": {
+                    "number": 275
+                },
+                "function": "next"
+            },
+            {
+                "library_frame": false,
+                "exclude_from_grouping": false,
+                "filename": "server.js",
+                "abs_path": "/app/server.js",
+                "line": {
+                    "number": 80,
+                    "context": "  next()"
+                },
+                "function": "<anonymous>",
+                "context": {
+                    "pre": [
+                        "  })",
+                        ""
+                    ],
+                    "post": [
+                        "})",
+                        ""
+                    ]
+                }
+            },
+            {
+                "library_frame": true,
+                "exclude_from_grouping": false,
+                "abs_path": "/app/node_modules/express/lib/router/layer.js",
+                "filename": "node_modules/express/lib/router/layer.js",
+                "line": {
+                    "number": 95
+                },
+                "function": "handle"
+            },
+            {
+                "library_frame": true,
+                "exclude_from_grouping": false,
+                "filename": "node_modules/express/lib/router/index.js",
+                "abs_path": "/app/node_modules/express/lib/router/index.js",
+                "line": {
+                    "number": 317
+                },
+                "function": "trim_prefix"
+            },
+            {
+                "exclude_from_grouping": false,
+                "library_frame": true,
+                "filename": "node_modules/express/lib/router/index.js",
+                "abs_path": "/app/node_modules/express/lib/router/index.js",
+                "line": {
+                    "number": 284
+                },
+                "function": "<anonymous>"
+            },
+            {
+                "library_frame": true,
+                "exclude_from_grouping": false,
+                "filename": "node_modules/express/lib/router/index.js",
+                "abs_path": "/app/node_modules/express/lib/router/index.js",
+                "line": {
+                    "number": 335
+                },
+                "function": "process_params"
+            },
+            {
+                "library_frame": true,
+                "exclude_from_grouping": false,
+                "filename": "node_modules/express/lib/router/index.js",
+                "abs_path": "/app/node_modules/express/lib/router/index.js",
+                "line": {
+                    "number": 275
+                },
+                "function": "next"
+            },
+            {
+                "library_frame": true,
+                "exclude_from_grouping": false,
+                "abs_path": "/app/node_modules/serve-static/index.js",
+                "filename": "node_modules/serve-static/index.js",
+                "line": {
+                    "number": 121
+                },
+                "function": "error"
+            },
+            {
+                "exclude_from_grouping": false,
+                "library_frame": true,
+                "filename": "events.js",
+                "abs_path": "events.js",
+                "line": {
+                    "number": 210
+                },
+                "function": "emit"
+            },
+            {
+                "library_frame": true,
+                "exclude_from_grouping": false,
+                "filename": "node_modules/send/index.js",
+                "abs_path": "/app/node_modules/send/index.js",
+                "line": {
+                    "number": 270
+                },
+                "function": "error"
+            },
+            {
+                "library_frame": true,
+                "exclude_from_grouping": false,
+                "filename": "node_modules/send/index.js",
+                "abs_path": "/app/node_modules/send/index.js",
+                "line": {
+                    "number": 421
+                },
+                "function": "onStatError"
+            },
+            {
+                "library_frame": true,
+                "exclude_from_grouping": false,
+                "filename": "node_modules/send/index.js",
+                "abs_path": "/app/node_modules/send/index.js",
+                "line": {
+                    "number": 735
+                },
+                "function": "next"
+            },
+            {
+                "library_frame": true,
+                "exclude_from_grouping": false,
+                "filename": "node_modules/send/index.js",
+                "abs_path": "/app/node_modules/send/index.js",
+                "line": {
+                    "number": 724
+                },
+                "function": "onstat"
+            },
+            {
+                "library_frame": true,
+                "exclude_from_grouping": false,
+                "abs_path": "fs.js",
+                "filename": "fs.js",
+                "line": {
+                    "number": 158
+                },
+                "function": "FSReqCallback.oncomplete"
+            }
+        ],
+        "subtype": "http",
+        "name": "GET opbeans-go:3000/api/products/top",
+        "action": "http",
+        "http": {
+            "method": "get",
+            "response": {
+                "status_code": 200
+            },
+            "url": {
+                "original": "http://172.19.0.11:3000/api/products/top"
+            }
+        },
+        "id": "90953a1007d4f070",
+        "type": "external",
+        "sync": false
+    },
+    "index": "apm-sample-data-span-1"
+}
+{
+    "parent": {
+        "id": "00de2d1a73fd2c32"
+    },
+    "agent": {
+        "name": "js-base",
+        "version": "4.6.0"
+    },
+    "processor": {
+        "name": "transaction",
+        "event": "span"
+    },
+    "observer": {
+        "hostname": "a0686cf97d5e",
+        "id": "5801254e-dae1-40ea-90f0-3659410676e3",
+        "type": "apm-server",
+        "ephemeral_id": "a527158d-183f-4d55-b988-7e7551c00e1f",
+        "version": "8.0.0",
+        "version_major": 8
+    },
+    "trace": {
+        "id": "93faed0b7687ff5e4fa353736641d28c"
+    },
+    "@timestamp": "2020-02-13T23:05:22.572Z",
+    "ecs": {
+        "version": "1.4.0"
+    },
+    "service": {
+        "name": "client"
+    },
+    "transaction": {
+        "id": "00de2d1a73fd2c32"
+    },
+    "span": {
+        "duration": {
+            "us": 2000
+        },
+        "name": "Requesting and receiving the document",
+        "start": {
+            "us": 1000
+        },
+        "id": "94d4f314b8c531e7",
+        "type": "hard-navigation"
+    },
+    "timestamp": {
+        "us": 1581635122572180
+    },
+    "index": "apm-sample-data-span-1"
+}
+{
+    "parent": {
+        "id": "00de2d1a73fd2c32"
+    },
+    "agent": {
+        "name": "js-base",
+        "version": "4.6.0"
+    },
+    "processor": {
+        "name": "transaction",
+        "event": "span"
+    },
+    "observer": {
+        "hostname": "a0686cf97d5e",
+        "id": "5801254e-dae1-40ea-90f0-3659410676e3",
+        "ephemeral_id": "a527158d-183f-4d55-b988-7e7551c00e1f",
+        "type": "apm-server",
+        "version": "8.0.0",
+        "version_major": 8
+    },
+    "trace": {
+        "id": "93faed0b7687ff5e4fa353736641d28c"
+    },
+    "@timestamp": "2020-02-13T23:05:22.601Z",
+    "ecs": {
+        "version": "1.4.0"
+    },
+    "service": {
+        "name": "client"
+    },
+    "transaction": {
+        "id": "00de2d1a73fd2c32"
+    },
+    "span": {
+        "duration": {
+            "us": 69000
+        },
+        "name": "Parsing the document, executing sync. scripts",
+        "start": {
+            "us": 30000
+        },
+        "id": "3c88a48f36da8e29",
+        "type": "hard-navigation"
+    },
+    "timestamp": {
+        "us": 1581635122601180
+    },
+    "index": "apm-sample-data-span-1"
+}
+{
+    "parent": {
+        "id": "00de2d1a73fd2c32"
+    },
+    "agent": {
+        "name": "js-base",
+        "version": "4.6.0"
+    },
+    "processor": {
+        "name": "transaction",
+        "event": "span"
+    },
+    "observer": {
+        "hostname": "a0686cf97d5e",
+        "id": "5801254e-dae1-40ea-90f0-3659410676e3",
+        "ephemeral_id": "a527158d-183f-4d55-b988-7e7551c00e1f",
+        "type": "apm-server",
+        "version": "8.0.0",
+        "version_major": 8
+    },
+    "trace": {
+        "id": "93faed0b7687ff5e4fa353736641d28c"
+    },
+    "@timestamp": "2020-02-13T23:05:22.605Z",
+    "ecs": {
+        "version": "1.4.0"
+    },
+    "service": {
+        "name": "client"
+    },
+    "transaction": {
+        "id": "00de2d1a73fd2c32"
+    },
+    "timestamp": {
+        "us": 1581635122605715
+    },
+    "span": {
+        "duration": {
+            "us": 3590
+        },
+        "name": "http://opbeans-node:3000/static/css/main.7bd7c5e8.css",
+        "start": {
+            "us": 34535
+        },
+        "http": {
+            "url": {
+                "original": "http://opbeans-node:3000/static/css/main.7bd7c5e8.css"
+            }
+        },
+        "id": "f25f38e8c62d13ce",
+        "type": "resource"
+    },
+    "index": "apm-sample-data-span-1"
+}
+{
+    "parent": {
+        "id": "00de2d1a73fd2c32"
+    },
+    "agent": {
+        "name": "js-base",
+        "version": "4.6.0"
+    },
+    "processor": {
+        "name": "transaction",
+        "event": "span"
+    },
+    "observer": {
+        "hostname": "a0686cf97d5e",
+        "id": "5801254e-dae1-40ea-90f0-3659410676e3",
+        "ephemeral_id": "a527158d-183f-4d55-b988-7e7551c00e1f",
+        "type": "apm-server",
+        "version": "8.0.0",
+        "version_major": 8
+    },
+    "trace": {
+        "id": "93faed0b7687ff5e4fa353736641d28c"
+    },
+    "@timestamp": "2020-02-13T23:05:22.605Z",
+    "ecs": {
+        "version": "1.4.0"
+    },
+    "service": {
+        "name": "client"
+    },
+    "transaction": {
+        "id": "00de2d1a73fd2c32"
+    },
+    "span": {
+        "duration": {
+            "us": 4855
+        },
+        "name": "http://opbeans-node:3000/static/js/main.18f58ace.js",
+        "start": {
+            "us": 34740
+        },
+        "http": {
+            "url": {
+                "original": "http://opbeans-node:3000/static/js/main.18f58ace.js"
+            }
+        },
+        "id": "6b6e34066dbac387",
+        "type": "resource"
+    },
+    "timestamp": {
+        "us": 1581635122605920
+    },
+    "index": "apm-sample-data-span-1"
+}
+{
+    "parent": {
+        "id": "00de2d1a73fd2c32"
+    },
+    "agent": {
+        "name": "js-base",
+        "version": "4.6.0"
+    },
+    "processor": {
+        "name": "transaction",
+        "event": "span"
+    },
+    "observer": {
+        "hostname": "a0686cf97d5e",
+        "id": "5801254e-dae1-40ea-90f0-3659410676e3",
+        "ephemeral_id": "a527158d-183f-4d55-b988-7e7551c00e1f",
+        "type": "apm-server",
+        "version": "8.0.0",
+        "version_major": 8
+    },
+    "trace": {
+        "id": "93faed0b7687ff5e4fa353736641d28c"
+    },
+    "@timestamp": "2020-02-13T23:05:22.646Z",
+    "ecs": {
+        "version": "1.4.0"
+    },
+    "service": {
+        "name": "client"
+    },
+    "transaction": {
+        "id": "00de2d1a73fd2c32"
+    },
+    "timestamp": {
+        "us": 1581635122646220
+    },
+    "span": {
+        "duration": {
+            "us": 61659
+        },
+        "name": "GET /api/products/top",
+        "start": {
+            "us": 75040
+        },
+        "http": {
+            "method": "get",
+            "response": {
+                "status_code": 200
+            },
+            "url": {
+                "original": "http://opbeans-node:3000/api/products/top"
+            }
+        },
+        "id": "7ebd63e6e57ca050",
+        "type": "external",
+        "sync": false
+    },
+    "index": "apm-sample-data-span-1"
+}
+{
+    "parent": {
+        "id": "00de2d1a73fd2c32"
+    },
+    "agent": {
+        "name": "js-base",
+        "version": "4.6.0"
+    },
+    "processor": {
+        "name": "transaction",
+        "event": "span"
+    },
+    "observer": {
+        "hostname": "a0686cf97d5e",
+        "id": "5801254e-dae1-40ea-90f0-3659410676e3",
+        "ephemeral_id": "a527158d-183f-4d55-b988-7e7551c00e1f",
+        "type": "apm-server",
+        "version": "8.0.0",
+        "version_major": 8
+    },
+    "trace": {
+        "id": "93faed0b7687ff5e4fa353736641d28c"
+    },
+    "@timestamp": "2020-02-13T23:05:22.648Z",
+    "ecs": {
+        "version": "1.4.0"
+    },
+    "service": {
+        "name": "client"
+    },
+    "transaction": {
+        "id": "00de2d1a73fd2c32"
+    },
+    "timestamp": {
+        "us": 1581635122648845
+    },
+    "span": {
+        "duration": {
+            "us": 17939
+        },
+        "name": "GET /api/stats",
+        "start": {
+            "us": 77665
+        },
+        "http": {
+            "method": "get",
+            "response": {
+                "status_code": 200
+            },
+            "url": {
+                "original": "http://opbeans-node:3000/api/stats"
+            }
+        },
+        "id": "c2760456598181f1",
+        "type": "external",
+        "sync": true
+    },
+    "index": "apm-sample-data-span-1"
+}
+{
+    "parent": {
+        "id": "395e4496d3aa79b1"
+    },
+    "agent": {
+        "name": "go",
+        "version": "1.7.0"
+    },
+    "destination": {
+        "address": "postgres",
+        "port": 5432
+    },
+    "processor": {
+        "name": "transaction",
+        "event": "span"
+    },
+    "observer": {
+        "hostname": "a0686cf97d5e",
+        "id": "5801254e-dae1-40ea-90f0-3659410676e3",
+        "ephemeral_id": "a527158d-183f-4d55-b988-7e7551c00e1f",
+        "type": "apm-server",
+        "version": "8.0.0",
+        "version_major": 8
+    },
+    "trace": {
+        "id": "93faed0b7687ff5e4fa353736641d28c"
+    },
+    "@timestamp": "2020-02-13T23:05:22.014Z",
+    "ecs": {
+        "version": "1.4.0"
+    },
+    "service": {
+        "environment": "production",
+        "name": "opbeans-go"
+    },
+    "connection": {
+        "hash": "{service.environment:'production'}/{service.name:'opbeans-go'}/{span.subtype:'postgresql'}/{destination.address:'postgres'}/{span.type:'db'}"
+    },
+    "transaction": {
+        "id": "395e4496d3aa79b1"
+    },
+    "timestamp": {
+        "us": 1581635122014144
+    },
+    "span": {
+        "duration": {
+            "us": 48820
+        },
+        "stacktrace": [
+            {
+                "library_frame": true,
+                "exclude_from_grouping": false,
+                "filename": "span.go",
+                "abs_path": "/src/go.elastic.co/apm/span.go",
+                "line": {
+                    "number": 307
+                },
+                "module": "go.elastic.co/apm",
+                "function": "(*Span).End"
+            },
+            {
+                "library_frame": true,
+                "exclude_from_grouping": false,
+                "abs_path": "/src/go.elastic.co/apm/module/apmsql/conn.go",
+                "filename": "conn.go",
+                "line": {
+                    "number": 115
+                },
+                "module": "go.elastic.co/apm/module/apmsql",
+                "function": "(*conn).finishSpan"
+            },
+            {
+                "library_frame": true,
+                "exclude_from_grouping": false,
+                "filename": "conn.go",
+                "abs_path": "/src/go.elastic.co/apm/module/apmsql/conn.go",
+                "line": {
+                    "number": 135
+                },
+                "module": "go.elastic.co/apm/module/apmsql",
+                "function": "(*conn).QueryContext"
+            },
+            {
+                "library_frame": true,
+                "exclude_from_grouping": false,
+                "filename": "ctxutil.go",
+                "abs_path": "/usr/local/go/src/database/sql/ctxutil.go",
+                "line": {
+                    "number": 48
+                },
+                "function": "ctxDriverQuery",
+                "module": "database/sql"
+            },
+            {
+                "library_frame": true,
+                "exclude_from_grouping": false,
+                "filename": "sql.go",
+                "abs_path": "/usr/local/go/src/database/sql/sql.go",
+                "line": {
+                    "number": 1592
+                },
+                "module": "database/sql",
+                "function": "(*DB).queryDC.func1"
+            },
+            {
+                "library_frame": true,
+                "exclude_from_grouping": false,
+                "filename": "sql.go",
+                "abs_path": "/usr/local/go/src/database/sql/sql.go",
+                "line": {
+                    "number": 3184
+                },
+                "function": "withLock",
+                "module": "database/sql"
+            },
+            {
+                "library_frame": true,
+                "exclude_from_grouping": false,
+                "filename": "sql.go",
+                "abs_path": "/usr/local/go/src/database/sql/sql.go",
+                "line": {
+                    "number": 1587
+                },
+                "module": "database/sql",
+                "function": "(*DB).queryDC"
+            },
+            {
+                "library_frame": true,
+                "exclude_from_grouping": false,
+                "filename": "sql.go",
+                "abs_path": "/usr/local/go/src/database/sql/sql.go",
+                "line": {
+                    "number": 1570
+                },
+                "module": "database/sql",
+                "function": "(*DB).query"
+            },
+            {
+                "library_frame": true,
+                "exclude_from_grouping": false,
+                "filename": "sql.go",
+                "abs_path": "/usr/local/go/src/database/sql/sql.go",
+                "line": {
+                    "number": 1547
+                },
+                "module": "database/sql",
+                "function": "(*DB).QueryContext"
+            },
+            {
+                "exclude_from_grouping": false,
+                "filename": "products.go",
+                "abs_path": "/src/opbeans-go/products.go",
+                "line": {
+                    "number": 41
+                },
+                "function": "getTopProducts",
+                "module": "main"
+            },
+            {
+                "exclude_from_grouping": false,
+                "filename": "api.go",
+                "abs_path": "/src/opbeans-go/api.go",
+                "line": {
+                    "number": 102
+                },
+                "module": "main",
+                "function": "apiHandlers.getProductDetails"
+            },
+            {
+                "library_frame": true,
+                "exclude_from_grouping": false,
+                "filename": "context.go",
+                "abs_path": "/go/pkg/mod/github.com/gin-gonic/gin@v1.4.0/context.go",
+                "line": {
+                    "number": 124
+                },
+                "function": "(*Context).Next",
+                "module": "github.com/gin-gonic/gin"
+            },
+            {
+                "exclude_from_grouping": false,
+                "filename": "main.go",
+                "abs_path": "/src/opbeans-go/main.go",
+                "line": {
+                    "number": 200
+                },
+                "module": "main",
+                "function": "Main.func2"
+            },
+            {
+                "library_frame": true,
+                "exclude_from_grouping": false,
+                "filename": "context.go",
+                "abs_path": "/go/pkg/mod/github.com/gin-gonic/gin@v1.4.0/context.go",
+                "line": {
+                    "number": 124
+                },
+                "module": "github.com/gin-gonic/gin",
+                "function": "(*Context).Next"
+            },
+            {
+                "exclude_from_grouping": false,
+                "filename": "main.go",
+                "abs_path": "/src/opbeans-go/main.go",
+                "line": {
+                    "number": 174
+                },
+                "module": "main",
+                "function": "Main.func1"
+            },
+            {
+                "library_frame": true,
+                "exclude_from_grouping": false,
+                "filename": "context.go",
+                "abs_path": "/go/pkg/mod/github.com/gin-gonic/gin@v1.4.0/context.go",
+                "line": {
+                    "number": 124
+                },
+                "module": "github.com/gin-gonic/gin",
+                "function": "(*Context).Next"
+            },
+            {
+                "exclude_from_grouping": false,
+                "filename": "logger.go",
+                "abs_path": "/src/opbeans-go/logger.go",
+                "line": {
+                    "number": 36
+                },
+                "module": "main",
+                "function": "logrusMiddleware"
+            },
+            {
+                "exclude_from_grouping": false,
+                "library_frame": true,
+                "filename": "context.go",
+                "abs_path": "/go/pkg/mod/github.com/gin-gonic/gin@v1.4.0/context.go",
+                "line": {
+                    "number": 124
+                },
+                "module": "github.com/gin-gonic/gin",
+                "function": "(*Context).Next"
+            },
+            {
+                "library_frame": true,
+                "exclude_from_grouping": false,
+                "filename": "middleware.go",
+                "abs_path": "/src/go.elastic.co/apm/module/apmgin/middleware.go",
+                "line": {
+                    "number": 132
+                },
+                "module": "go.elastic.co/apm/module/apmgin",
+                "function": "(*middleware).handle"
+            },
+            {
+                "library_frame": true,
+                "exclude_from_grouping": false,
+                "filename": "context.go",
+                "abs_path": "/go/pkg/mod/github.com/gin-gonic/gin@v1.4.0/context.go",
+                "line": {
+                    "number": 124
+                },
+                "module": "github.com/gin-gonic/gin",
+                "function": "(*Context).Next"
+            },
+            {
+                "library_frame": true,
+                "exclude_from_grouping": false,
+                "abs_path": "/go/pkg/mod/github.com/gin-contrib/cache@v1.1.0/cache.go",
+                "filename": "cache.go",
+                "line": {
+                    "number": 128
+                },
+                "module": "github.com/gin-contrib/cache",
+                "function": "Cache.func1"
+            },
+            {
+                "library_frame": true,
+                "exclude_from_grouping": false,
+                "filename": "context.go",
+                "abs_path": "/go/pkg/mod/github.com/gin-gonic/gin@v1.4.0/context.go",
+                "line": {
+                    "number": 124
+                },
+                "module": "github.com/gin-gonic/gin",
+                "function": "(*Context).Next"
+            },
+            {
+                "library_frame": true,
+                "exclude_from_grouping": false,
+                "filename": "gin.go",
+                "abs_path": "/go/pkg/mod/github.com/gin-gonic/gin@v1.4.0/gin.go",
+                "line": {
+                    "number": 389
+                },
+                "module": "github.com/gin-gonic/gin",
+                "function": "(*Engine).handleHTTPRequest"
+            },
+            {
+                "exclude_from_grouping": false,
+                "library_frame": true,
+                "filename": "gin.go",
+                "abs_path": "/go/pkg/mod/github.com/gin-gonic/gin@v1.4.0/gin.go",
+                "line": {
+                    "number": 351
+                },
+                "module": "github.com/gin-gonic/gin",
+                "function": "(*Engine).ServeHTTP"
+            },
+            {
+                "library_frame": true,
+                "exclude_from_grouping": false,
+                "filename": "server.go",
+                "abs_path": "/usr/local/go/src/net/http/server.go",
+                "line": {
+                    "number": 2802
+                },
+                "module": "net/http",
+                "function": "serverHandler.ServeHTTP"
+            },
+            {
+                "library_frame": true,
+                "exclude_from_grouping": false,
+                "filename": "server.go",
+                "abs_path": "/usr/local/go/src/net/http/server.go",
+                "line": {
+                    "number": 1890
+                },
+                "module": "net/http",
+                "function": "(*conn).serve"
+            },
+            {
+                "library_frame": true,
+                "exclude_from_grouping": false,
+                "filename": "asm_amd64.s",
+                "abs_path": "/usr/local/go/src/runtime/asm_amd64.s",
+                "line": {
+                    "number": 1357
+                },
+                "module": "runtime",
+                "function": "goexit"
+            }
+        ],
+        "subtype": "postgresql",
+        "name": "SELECT FROM products",
+        "destination": {
+            "service": {
+                "resource": "postgresql",
+                "name": "postgresql",
+                "type": "db"
+            }
+        },
+        "action": "query",
+        "id": "721d2514dd0ed6e0",
+        "type": "db",
+        "db": {
+            "statement": "SELECT\n\t  id, sku, name, stock, SUM(order_lines.amount) AS sold\nFROM products JOIN order_lines ON id=product_id GROUP BY products.id ORDER BY sold DESC\nLIMIT 3\n",
+            "type": "sql",
+            "user": {
+                "name": "postgres"
+            }
+        }
+    },
+    "index": "apm-sample-data-span-1"
+}
+{
+    "parent": {
+        "id": "8e58f544230eef47"
+    },
+    "agent": {
+        "name": "ruby",
+        "version": "3.3.0"
+    },
+    "processor": {
+        "name": "transaction",
+        "event": "span"
+    },
+    "observer": {
+        "hostname": "a0686cf97d5e",
+        "id": "5801254e-dae1-40ea-90f0-3659410676e3",
+        "ephemeral_id": "a527158d-183f-4d55-b988-7e7551c00e1f",
+        "type": "apm-server",
+        "version": "8.0.0",
+        "version_major": 8
+    },
+    "trace": {
+        "id": "93faed0b7687ff5e4fa353736641d28c"
+    },
+    "@timestamp": "2020-02-13T23:05:22.020Z",
+    "ecs": {
+        "version": "1.4.0"
+    },
+    "service": {
+        "environment": "production",
+        "name": "opbeans-ruby"
+    },
+    "transaction": {
+        "id": "317a68fb00edaaef"
+    },
+    "span": {
+        "duration": {
+            "us": 341
+        },
+        "subtype": "postgresql",
+        "name": "SELECT FROM customers",
+        "action": "sql",
+        "id": "5f57ab6ab3cf72cc",
+        "type": "db",
+        "db": {
+            "statement": "SELECT COUNT(*) FROM \"customers\"",
+            "type": "sql"
+        }
+    },
+    "timestamp": {
+        "us": 1581635122020616
+    },
+    "index": "apm-sample-data-span-1"
+}
+{
+    "parent": {
+        "id": "317a68fb00edaaef"
+    },
+    "agent": {
+        "name": "ruby",
+        "version": "3.3.0"
+    },
+    "processor": {
+        "name": "transaction",
+        "event": "span"
+    },
+    "observer": {
+        "hostname": "a0686cf97d5e",
+        "id": "5801254e-dae1-40ea-90f0-3659410676e3",
+        "ephemeral_id": "a527158d-183f-4d55-b988-7e7551c00e1f",
+        "type": "apm-server",
+        "version": "8.0.0",
+        "version_major": 8
+    },
+    "trace": {
+        "id": "93faed0b7687ff5e4fa353736641d28c"
+    },
+    "@timestamp": "2020-02-13T23:05:22.018Z",
+    "ecs": {
+        "version": "1.4.0"
+    },
+    "service": {
+        "environment": "production",
+        "name": "opbeans-ruby"
+    },
+    "transaction": {
+        "id": "317a68fb00edaaef"
+    },
+    "span": {
+        "duration": {
+            "us": 3527
+        },
+        "subtype": "controller",
+        "name": "Api::StatsController#index",
+        "action": "action",
+        "id": "8e58f544230eef47",
+        "type": "app"
+    },
+    "timestamp": {
+        "us": 1581635122018640
+    },
+    "index": "apm-sample-data-span-1"
+}
+{
+    "parent": {
+        "id": "8e58f544230eef47"
+    },
+    "agent": {
+        "name": "ruby",
+        "version": "3.3.0"
+    },
+    "processor": {
+        "name": "transaction",
+        "event": "span"
+    },
+    "observer": {
+        "hostname": "a0686cf97d5e",
+        "id": "5801254e-dae1-40ea-90f0-3659410676e3",
+        "ephemeral_id": "a527158d-183f-4d55-b988-7e7551c00e1f",
+        "type": "apm-server",
+        "version": "8.0.0",
+        "version_major": 8
+    },
+    "trace": {
+        "id": "93faed0b7687ff5e4fa353736641d28c"
+    },
+    "@timestamp": "2020-02-13T23:05:22.019Z",
+    "ecs": {
+        "version": "1.4.0"
+    },
+    "service": {
+        "environment": "production",
+        "name": "opbeans-ruby"
+    },
+    "transaction": {
+        "id": "317a68fb00edaaef"
+    },
+    "span": {
+        "duration": {
+            "us": 488
+        },
+        "subtype": "postgresql",
+        "name": "SELECT FROM products",
+        "action": "sql",
+        "id": "954e15691b3d775b",
+        "type": "db",
+        "db": {
+            "statement": "SELECT COUNT(*) FROM \"products\"",
+            "type": "sql"
+        }
+    },
+    "timestamp": {
+        "us": 1581635122019652
+    },
+    "index": "apm-sample-data-span-1"
+}
+{
+    "parent": {
+        "id": "8e58f544230eef47"
+    },
+    "agent": {
+        "name": "ruby",
+        "version": "3.3.0"
+    },
+    "processor": {
+        "name": "transaction",
+        "event": "span"
+    },
+    "observer": {
+        "hostname": "a0686cf97d5e",
+        "id": "5801254e-dae1-40ea-90f0-3659410676e3",
+        "ephemeral_id": "a527158d-183f-4d55-b988-7e7551c00e1f",
+        "type": "apm-server",
+        "version": "8.0.0",
+        "version_major": 8
+    },
+    "trace": {
+        "id": "93faed0b7687ff5e4fa353736641d28c"
+    },
+    "@timestamp": "2020-02-13T23:05:22.021Z",
+    "ecs": {
+        "version": "1.4.0"
+    },
+    "service": {
+        "environment": "production",
+        "name": "opbeans-ruby"
+    },
+    "transaction": {
+        "id": "317a68fb00edaaef"
+    },
+    "timestamp": {
+        "us": 1581635122021349
+    },
+    "span": {
+        "duration": {
+            "us": 356
+        },
+        "subtype": "postgresql",
+        "name": "SELECT FROM orders",
+        "action": "sql",
+        "id": "50b80c12046aa752",
+        "type": "db",
+        "db": {
+            "statement": "SELECT COUNT(*) FROM \"orders\"",
+            "type": "sql"
+        }
+    },
+    "index": "apm-sample-data-span-1"
+}
+{
+    "parent": {
+        "id": "ab5665dd841ee1d9"
+    },
+    "agent": {
+        "name": "ruby",
+        "version": "3.3.0"
+    },
+    "process": {
+        "args": [
+            "-C",
+            "config/puma.rb"
+        ],
+        "pid": 73,
+        "title": "/usr/local/bundle/bin/puma"
+    },
+    "processor": {
+        "name": "transaction",
+        "event": "transaction"
+    },
+    "url": {
+        "path": "/api/stats",
+        "scheme": "http",
+        "port": 3000,
+        "query": "",
+        "domain": "opbeans-ruby",
+        "full": "http://opbeans-ruby:3000/api/stats"
+    },
+    "labels": {
+        "company": "opbeans"
+    },
+    "observer": {
+        "hostname": "a0686cf97d5e",
+        "id": "5801254e-dae1-40ea-90f0-3659410676e3",
+        "ephemeral_id": "a527158d-183f-4d55-b988-7e7551c00e1f",
+        "type": "apm-server",
+        "version": "8.0.0",
+        "version_major": 8
+    },
+    "trace": {
+        "id": "93faed0b7687ff5e4fa353736641d28c"
+    },
+    "@timestamp": "2020-02-13T23:05:22.017Z",
+    "ecs": {
+        "version": "1.4.0"
+    },
+    "service": {
+        "node": {
+            "name": "50eadb907cd8"
+        },
+        "environment": "production",
+        "framework": {
+            "name": "Ruby on Rails",
+            "version": "5.2.3"
+        },
+        "name": "opbeans-ruby",
+        "runtime": {
+            "name": "ruby",
+            "version": "2.6.5"
+        },
+        "language": {
+            "name": "ruby",
+            "version": "2.6.5"
+        },
+        "version": "None"
+    },
+    "host": {
+        "hostname": "50eadb907cd8",
+        "os": {
+            "platform": "linux"
+        },
+        "ip": "172.19.0.8",
+        "name": "50eadb907cd8",
+        "architecture": "x86_64"
+    },
+    "http": {
+        "request": {
+            "headers": {
+                "Version": [
+                    "HTTP/1.1"
+                ],
+                "Connection": [
+                    "close"
+                ],
+                "Host": [
+                    "opbeans-ruby:3000"
+                ],
+                "Elastic-Apm-Traceparent": [
+                    "00-93faed0b7687ff5e4fa353736641d28c-ab5665dd841ee1d9-01"
+                ]
+            },
+            "method": "get",
+            "socket": {
+                "encrypted": false
+            },
+            "env": {
+                "ORIGINAL_FULLPATH": "/api/stats",
+                "SERVER_PORT": "3000",
+                "GATEWAY_INTERFACE": "CGI/1.2",
+                "ROUTES_47102241071880_SCRIPT_NAME": "",
+                "SERVER_PROTOCOL": "HTTP/1.1",
+                "REQUEST_URI": "/api/stats",
+                "REMOTE_ADDR": "172.19.0.10",
+                "ORIGINAL_SCRIPT_NAME": "",
+                "SERVER_SOFTWARE": "puma 4.1.0 Fourth and One",
+                "QUERY_STRING": "",
+                "SCRIPT_NAME": "",
+                "REQUEST_METHOD": "GET",
+                "REQUEST_PATH": "/api/stats",
+                "SERVER_NAME": "opbeans-ruby",
+                "PATH_INFO": "/api/stats"
+            },
+            "body": {
+                "original": "[SKIPPED]"
+            }
+        },
+        "response": {
+            "headers": {
+                "X-Frame-Options": [
+                    "SAMEORIGIN"
+                ],
+                "Referrer-Policy": [
+                    "strict-origin-when-cross-origin"
+                ],
+                "Cache-Control": [
+                    "max-age=0, private, must-revalidate"
+                ],
+                "Etag": [
+                    "W/\"37c402fff98fe986ebf5e3ba08420463\""
+                ],
+                "X-Request-Id": [
+                    "b66c6a44-7ff7-45d6-9457-6f0dadde3b5f"
+                ],
+                "X-Runtime": [
+                    "0.004708"
+                ],
+                "X-Content-Type-Options": [
+                    "nosniff"
+                ],
+                "X-Xss-Protection": [
+                    "1; mode=block"
+                ],
+                "X-Download-Options": [
+                    "noopen"
+                ],
+                "X-Permitted-Cross-Domain-Policies": [
+                    "none"
+                ],
+                "Content-Type": [
+                    "application/json; charset=utf-8"
+                ]
+            },
+            "status_code": 200,
+            "finished": true,
+            "headers_sent": true
+        },
+        "version": "1.1"
+    },
+    "user": {
+        "name": "coffeelover",
+        "id": "3229",
+        "email": "coffeelover@example.com"
+    },
+    "transaction": {
+        "duration": {
+            "us": 4966
+        },
+        "result": "HTTP 2xx",
+        "name": "Api::StatsController#index",
+        "span_count": {
+            "dropped": 0,
+            "started": 4
+        },
+        "id": "317a68fb00edaaef",
+        "type": "request",
+        "sampled": true
+    },
+    "timestamp": {
+        "us": 1581635122017667
+    },
+    "index": "apm-sample-data-transaction-1"
+}
+{
+    "container": {
+        "id": "c678122916157f9dc11c746ee018e5badbae9dde20e8862c55fe6e4793d29eda"
+    },
+    "parent": {
+        "id": "94d4f314b8c531e7"
+    },
+    "agent": {
+        "name": "nodejs",
+        "version": "3.3.0"
+    },
+    "process": {
+        "args": [
+            "/usr/local/bin/node",
+            "/usr/local/lib/node_modules/pm2/lib/ProcessContainer.js",
+            "ecosystem-workload.config.js"
+        ],
+        "pid": 28899,
+        "title": "node /app/server.js",
+        "ppid": 1
+    },
+    "source": {
+        "ip": "172.19.0.14"
+    },
+    "processor": {
+        "name": "transaction",
+        "event": "transaction"
+    },
+    "url": {
+        "path": "/dashboard",
+        "original": "/dashboard",
+        "scheme": "http",
+        "port": 3000,
+        "domain": "opbeans-node",
+        "full": "http://opbeans-node:3000/dashboard"
+    },
+    "labels": {
+        "lorem": "ipsum dolor sit amet, consectetur adipiscing elit. Nulla finibus, ipsum id scelerisque consequat, enim leo vulputate massa, vel ultricies ante neque ac risus. Curabitur tincidunt vitae sapien id pulvinar. Mauris eu vestibulum tortor. Integer sit amet lorem fringilla, egestas tellus vitae, vulputate purus. Nulla feugiat blandit nunc et semper. Morbi purus libero, mattis sed mauris non, euismod iaculis lacus. Curabitur eleifend ante eros, non faucibus velit lacinia id. Duis posuere libero augue, at dignissim urna consectetur eget. Praesent eu congue est, iaculis finibus augue.",
+        "this-is-a-very-long-tag-name-without-any-spaces": "test",
+        "foo": "bar",
+        "multi-line": "foo\nbar\nbaz"
+    },
+    "observer": {
+        "hostname": "a0686cf97d5e",
+        "id": "5801254e-dae1-40ea-90f0-3659410676e3",
+        "ephemeral_id": "a527158d-183f-4d55-b988-7e7551c00e1f",
+        "type": "apm-server",
+        "version": "8.0.0",
+        "version_major": 8
+    },
+    "trace": {
+        "id": "93faed0b7687ff5e4fa353736641d28c"
+    },
+    "@timestamp": "2020-02-13T23:05:21.932Z",
+    "ecs": {
+        "version": "1.4.0"
+    },
+    "service": {
+        "node": {
+            "name": "c678122916157f9dc11c746ee018e5badbae9dde20e8862c55fe6e4793d29eda"
+        },
+        "environment": "production",
+        "framework": {
+            "name": "express",
+            "version": "4.17.1"
+        },
+        "name": "opbeans-node",
+        "runtime": {
+            "name": "node",
+            "version": "12.13.1"
+        },
+        "language": {
+            "name": "javascript"
+        },
+        "version": "1.0.0"
+    },
+    "host": {
+        "hostname": "c67812291615",
+        "os": {
+            "platform": "linux"
+        },
+        "ip": "172.19.0.10",
+        "name": "c67812291615",
+        "architecture": "x64"
+    },
+    "http": {
+        "request": {
+            "headers": {
+                "Accept": [
+                    "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9"
+                ],
+                "Upgrade-Insecure-Requests": [
+                    "1"
+                ],
+                "Connection": [
+                    "keep-alive"
+                ],
+                "User-Agent": [
+                    "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/79.0.3945.0 Safari/537.36"
+                ],
+                "Host": [
+                    "opbeans-node:3000"
+                ],
+                "Accept-Encoding": [
+                    "gzip, deflate"
+                ]
+            },
+            "method": "get",
+            "socket": {
+                "encrypted": false,
+                "remote_address": "::ffff:172.19.0.14"
+            }
+        },
+        "response": {
+            "headers": {
+                "Connection": [
+                    "keep-alive"
+                ],
+                "Content-Length": [
+                    "813"
+                ],
+                "Date": [
+                    "Thu, 13 Feb 2020 23:05:21 GMT"
+                ],
+                "X-Powered-By": [
+                    "Express"
+                ],
+                "Content-Type": [
+                    "text/html"
+                ]
+            },
+            "status_code": 200
+        },
+        "version": "1.1"
+    },
+    "client": {
+        "ip": "172.19.0.14"
+    },
+    "user": {
+        "name": "kimchy",
+        "id": "42",
+        "email": "kimchy@elastic.co"
+    },
+    "transaction": {
+        "result": "HTTP 2xx",
+        "duration": {
+            "us": 1801
+        },
+        "custom": {
+            "shoppingBasketCount": 42
+        },
+        "name": "GET /*",
+        "span_count": {
+            "started": 0
+        },
+        "id": "3af3abb7ef85a98c",
+        "type": "request",
+        "sampled": true
+    },
+    "user_agent": {
+        "original": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/79.0.3945.0 Safari/537.36",
+        "os": {
+            "name": "Linux"
+        },
+        "name": "HeadlessChrome",
+        "device": {
+            "name": "Other"
+        },
+        "version": "79.0.3945"
+    },
+    "timestamp": {
+        "us": 1581635121932012
+    },
+    "index": "apm-sample-data-transaction-1"
+}
+{
+    "container": {
+        "id": "c678122916157f9dc11c746ee018e5badbae9dde20e8862c55fe6e4793d29eda"
+    },
+    "parent": {
+        "id": "c2760456598181f1"
+    },
+    "process": {
+        "args": [
+            "/usr/local/bin/node",
+            "/usr/local/lib/node_modules/pm2/lib/ProcessContainer.js",
+            "ecosystem-workload.config.js"
+        ],
+        "pid": 28899,
+        "title": "node /app/server.js",
+        "ppid": 1
+    },
+    "agent": {
+        "name": "nodejs",
+        "version": "3.3.0"
+    },
+    "source": {
+        "ip": "172.19.0.14"
+    },
+    "processor": {
+        "name": "transaction",
+        "event": "transaction"
+    },
+    "url": {
+        "path": "/api/stats",
+        "original": "/api/stats",
+        "scheme": "http",
+        "port": 3000,
+        "domain": "opbeans-node",
+        "full": "http://opbeans-node:3000/api/stats"
+    },
+    "labels": {
+        "lorem": "ipsum dolor sit amet, consectetur adipiscing elit. Nulla finibus, ipsum id scelerisque consequat, enim leo vulputate massa, vel ultricies ante neque ac risus. Curabitur tincidunt vitae sapien id pulvinar. Mauris eu vestibulum tortor. Integer sit amet lorem fringilla, egestas tellus vitae, vulputate purus. Nulla feugiat blandit nunc et semper. Morbi purus libero, mattis sed mauris non, euismod iaculis lacus. Curabitur eleifend ante eros, non faucibus velit lacinia id. Duis posuere libero augue, at dignissim urna consectetur eget. Praesent eu congue est, iaculis finibus augue.",
+        "this-is-a-very-long-tag-name-without-any-spaces": "test",
+        "foo": "bar",
+        "multi-line": "foo\nbar\nbaz"
+    },
+    "observer": {
+        "hostname": "a0686cf97d5e",
+        "id": "5801254e-dae1-40ea-90f0-3659410676e3",
+        "ephemeral_id": "a527158d-183f-4d55-b988-7e7551c00e1f",
+        "type": "apm-server",
+        "version": "8.0.0",
+        "version_major": 8
+    },
+    "trace": {
+        "id": "93faed0b7687ff5e4fa353736641d28c"
+    },
+    "@timestamp": "2020-02-13T23:05:22.011Z",
+    "ecs": {
+        "version": "1.4.0"
+    },
+    "service": {
+        "node": {
+            "name": "c678122916157f9dc11c746ee018e5badbae9dde20e8862c55fe6e4793d29eda"
+        },
+        "environment": "production",
+        "framework": {
+            "name": "express",
+            "version": "4.17.1"
+        },
+        "name": "opbeans-node",
+        "runtime": {
+            "name": "node",
+            "version": "12.13.1"
+        },
+        "language": {
+            "name": "javascript"
+        },
+        "version": "1.0.0"
+    },
+    "host": {
+        "hostname": "c67812291615",
+        "os": {
+            "platform": "linux"
+        },
+        "ip": "172.19.0.10",
+        "name": "c67812291615",
+        "architecture": "x64"
+    },
+    "http": {
+        "request": {
+            "headers": {
+                "If-None-Match": [
+                    "W/\"79-1/5rSmtVO3sctG5Nzvf5ydkh0Lw\""
+                ],
+                "Accept": [
+                    "*/*"
+                ],
+                "User-Agent": [
+                    "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/79.0.3945.0 Safari/537.36"
+                ],
+                "Referer": [
+                    "http://opbeans-node:3000/dashboard"
+                ],
+                "Connection": [
+                    "keep-alive"
+                ],
+                "Host": [
+                    "opbeans-node:3000"
+                ],
+                "Accept-Encoding": [
+                    "gzip, deflate"
+                ],
+                "Elastic-Apm-Traceparent": [
+                    "00-93faed0b7687ff5e4fa353736641d28c-c2760456598181f1-01"
+                ]
+            },
+            "method": "get",
+            "socket": {
+                "encrypted": false,
+                "remote_address": "::ffff:172.19.0.14"
+            }
+        },
+        "response": {
+            "headers": {
+                "Transfer-Encoding": [
+                    "chunked"
+                ],
+                "X-Request-Id": [
+                    "b66c6a44-7ff7-45d6-9457-6f0dadde3b5f"
+                ],
+                "X-Runtime": [
+                    "0.004708"
+                ],
+                "X-Content-Type-Options": [
+                    "nosniff"
+                ],
+                "Connection": [
+                    "close"
+                ],
+                "X-Download-Options": [
+                    "noopen"
+                ],
+                "X-Permitted-Cross-Domain-Policies": [
+                    "none"
+                ],
+                "Date": [
+                    "Thu, 13 Feb 2020 23:05:22 GMT"
+                ],
+                "X-Frame-Options": [
+                    "SAMEORIGIN"
+                ],
+                "Referrer-Policy": [
+                    "strict-origin-when-cross-origin"
+                ],
+                "Etag": [
+                    "W/\"37c402fff98fe986ebf5e3ba08420463\""
+                ],
+                "Cache-Control": [
+                    "max-age=0, private, must-revalidate"
+                ],
+                "X-Xss-Protection": [
+                    "1; mode=block"
+                ],
+                "Content-Type": [
+                    "application/json; charset=utf-8"
+                ],
+                "X-Powered-By": [
+                    "Express"
+                ]
+            },
+            "status_code": 200
+        },
+        "version": "1.1"
+    },
+    "client": {
+        "ip": "172.19.0.14"
+    },
+    "user": {
+        "name": "kimchy",
+        "id": "42",
+        "email": "kimchy@elastic.co"
+    },
+    "transaction": {
+        "result": "HTTP 2xx",
+        "duration": {
+            "us": 12395
+        },
+        "custom": {
+            "shoppingBasketCount": 42
+        },
+        "name": "GET /api",
+        "span_count": {
+            "started": 1
+        },
+        "id": "360b643d629df78e",
+        "type": "request",
+        "sampled": true
+    },
+    "user_agent": {
+        "original": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/79.0.3945.0 Safari/537.36",
+        "os": {
+            "name": "Linux"
+        },
+        "name": "HeadlessChrome",
+        "device": {
+            "name": "Other"
+        },
+        "version": "79.0.3945"
+    },
+    "timestamp": {
+        "us": 1581635122011008
+    },
+    "index": "apm-sample-data-transaction-1"
+}
+{
+    "container": {
+        "id": "c678122916157f9dc11c746ee018e5badbae9dde20e8862c55fe6e4793d29eda"
+    },
+    "parent": {
+        "id": "7ebd63e6e57ca050"
+    },
+    "process": {
+        "args": [
+            "/usr/local/bin/node",
+            "/usr/local/lib/node_modules/pm2/lib/ProcessContainer.js",
+            "ecosystem-workload.config.js"
+        ],
+        "pid": 28899,
+        "title": "node /app/server.js",
+        "ppid": 1
+    },
+    "agent": {
+        "name": "nodejs",
+        "version": "3.3.0"
+    },
+    "source": {
+        "ip": "172.19.0.14"
+    },
+    "processor": {
+        "name": "transaction",
+        "event": "transaction"
+    },
+    "url": {
+        "path": "/api/products/top",
+        "original": "/api/products/top",
+        "scheme": "http",
+        "port": 3000,
+        "domain": "opbeans-node",
+        "full": "http://opbeans-node:3000/api/products/top"
+    },
+    "labels": {
+        "lorem": "ipsum dolor sit amet, consectetur adipiscing elit. Nulla finibus, ipsum id scelerisque consequat, enim leo vulputate massa, vel ultricies ante neque ac risus. Curabitur tincidunt vitae sapien id pulvinar. Mauris eu vestibulum tortor. Integer sit amet lorem fringilla, egestas tellus vitae, vulputate purus. Nulla feugiat blandit nunc et semper. Morbi purus libero, mattis sed mauris non, euismod iaculis lacus. Curabitur eleifend ante eros, non faucibus velit lacinia id. Duis posuere libero augue, at dignissim urna consectetur eget. Praesent eu congue est, iaculis finibus augue.",
+        "this-is-a-very-long-tag-name-without-any-spaces": "test",
+        "foo": "bar",
+        "multi-line": "foo\nbar\nbaz"
+    },
+    "observer": {
+        "hostname": "a0686cf97d5e",
+        "id": "5801254e-dae1-40ea-90f0-3659410676e3",
+        "ephemeral_id": "a527158d-183f-4d55-b988-7e7551c00e1f",
+        "type": "apm-server",
+        "version": "8.0.0",
+        "version_major": 8
+    },
+    "trace": {
+        "id": "93faed0b7687ff5e4fa353736641d28c"
+    },
+    "@timestamp": "2020-02-13T23:05:22.008Z",
+    "ecs": {
+        "version": "1.4.0"
+    },
+    "service": {
+        "node": {
+            "name": "c678122916157f9dc11c746ee018e5badbae9dde20e8862c55fe6e4793d29eda"
+        },
+        "environment": "production",
+        "framework": {
+            "name": "express",
+            "version": "4.17.1"
+        },
+        "name": "opbeans-node",
+        "runtime": {
+            "name": "node",
+            "version": "12.13.1"
+        },
+        "language": {
+            "name": "javascript"
+        },
+        "version": "1.0.0"
+    },
+    "host": {
+        "hostname": "c67812291615",
+        "os": {
+            "platform": "linux"
+        },
+        "ip": "172.19.0.10",
+        "name": "c67812291615",
+        "architecture": "x64"
+    },
+    "client": {
+        "ip": "172.19.0.14"
+    },
+    "http": {
+        "request": {
+            "headers": {
+                "If-None-Match": [
+                    "W/\"11d-jW/xGh0yqQUAN/ZmN7ITGafEjBw\""
+                ],
+                "Accept": [
+                    "*/*"
+                ],
+                "Referer": [
+                    "http://opbeans-node:3000/dashboard"
+                ],
+                "Connection": [
+                    "keep-alive"
+                ],
+                "User-Agent": [
+                    "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/79.0.3945.0 Safari/537.36"
+                ],
+                "Host": [
+                    "opbeans-node:3000"
+                ],
+                "Accept-Encoding": [
+                    "gzip, deflate"
+                ],
+                "Elastic-Apm-Traceparent": [
+                    "00-93faed0b7687ff5e4fa353736641d28c-7ebd63e6e57ca050-01"
+                ]
+            },
+            "method": "get",
+            "socket": {
+                "encrypted": false,
+                "remote_address": "::ffff:172.19.0.14"
+            }
+        },
+        "response": {
+            "headers": {
+                "Connection": [
+                    "close"
+                ],
+                "Content-Length": [
+                    "409"
+                ],
+                "Date": [
+                    "Thu, 13 Feb 2020 23:05:22 GMT"
+                ],
+                "X-Powered-By": [
+                    "Express"
+                ],
+                "Content-Type": [
+                    "application/json; charset=utf-8"
+                ]
+            },
+            "status_code": 200
+        },
+        "version": "1.1"
+    },
+    "user": {
+        "name": "kimchy",
+        "id": "42",
+        "email": "kimchy@elastic.co"
+    },
+    "transaction": {
+        "result": "HTTP 2xx",
+        "duration": {
+            "us": 55882
+        },
+        "custom": {
+            "shoppingBasketCount": 42
+        },
+        "name": "GET /api",
+        "span_count": {
+            "started": 1
+        },
+        "id": "70e7370cd897ad79",
+        "type": "request",
+        "sampled": true
+    },
+    "user_agent": {
+        "original": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/79.0.3945.0 Safari/537.36",
+        "os": {
+            "name": "Linux"
+        },
+        "name": "HeadlessChrome",
+        "device": {
+            "name": "Other"
+        },
+        "version": "79.0.3945"
+    },
+    "timestamp": {
+        "us": 1581635122008017
+    },
+    "index": "apm-sample-data-transaction-1"
+}
+{
+    "container": {
+        "id": "648a4ee72b44f2f5a24d8fe7af208f40cfc8cb7077c9d20eed27597edb5d5028"
+    },
+    "parent": {
+        "id": "90953a1007d4f070"
+    },
+    "agent": {
+        "name": "go",
+        "version": "1.7.0"
+    },
+    "process": {
+        "args": [
+            "/opbeans-go",
+            "-log-json",
+            "-log-level=debug",
+            "-listen=:3000",
+            "-frontend=/opbeans-frontend",
+            "-db=postgres:",
+            "-cache=redis://redis:6379"
+        ],
+        "pid": 1,
+        "title": "opbeans-go",
+        "ppid": 0
+    },
+    "source": {
+        "ip": "172.19.0.10"
+    },
+    "processor": {
+        "name": "transaction",
+        "event": "transaction"
+    },
+    "url": {
+        "path": "/api/products/top",
+        "scheme": "http",
+        "port": 3000,
+        "domain": "opbeans-go",
+        "full": "http://opbeans-go:3000/api/products/top"
+    },
+    "observer": {
+        "hostname": "a0686cf97d5e",
+        "id": "5801254e-dae1-40ea-90f0-3659410676e3",
+        "ephemeral_id": "a527158d-183f-4d55-b988-7e7551c00e1f",
+        "type": "apm-server",
+        "version": "8.0.0",
+        "version_major": 8
+    },
+    "trace": {
+        "id": "93faed0b7687ff5e4fa353736641d28c"
+    },
+    "@timestamp": "2020-02-13T23:05:22.014Z",
+    "ecs": {
+        "version": "1.4.0"
+    },
+    "service": {
+        "node": {
+            "name": "648a4ee72b44f2f5a24d8fe7af208f40cfc8cb7077c9d20eed27597edb5d5028"
+        },
+        "environment": "production",
+        "framework": {
+            "name": "gin",
+            "version": "v1.4.0"
+        },
+        "name": "opbeans-go",
+        "runtime": {
+            "name": "gc",
+            "version": "go1.13.7"
+        },
+        "language": {
+            "name": "go",
+            "version": "go1.13.7"
+        },
+        "version": "None"
+    },
+    "host": {
+        "hostname": "648a4ee72b44",
+        "os": {
+            "platform": "linux"
+        },
+        "ip": "172.19.0.11",
+        "name": "648a4ee72b44",
+        "architecture": "amd64"
+    },
+    "client": {
+        "ip": "172.19.0.10"
+    },
+    "http": {
+        "request": {
+            "headers": {
+                "Connection": [
+                    "close"
+                ],
+                "Elastic-Apm-Traceparent": [
+                    "00-93faed0b7687ff5e4fa353736641d28c-90953a1007d4f070-01"
+                ]
+            },
+            "method": "get",
+            "socket": {
+                "remote_address": "172.19.0.10"
+            }
+        },
+        "response": {
+            "headers": {
+                "Content-Type": [
+                    "application/json; charset=utf-8"
+                ]
+            },
+            "status_code": 200
+        },
+        "version": "1.1"
+    },
+    "transaction": {
+        "duration": {
+            "us": 49141
+        },
+        "result": "HTTP 2xx",
+        "name": "GET /api/products/:id",
+        "id": "395e4496d3aa79b1",
+        "span_count": {
+            "dropped": 0,
+            "started": 1
+        },
+        "type": "request",
+        "sampled": true
+    },
+    "timestamp": {
+        "us": 1581635122014075
+    },
+    "index": "apm-sample-data-transaction-1"
+}
+{
+    "agent": {
+        "name": "js-base",
+        "version": "4.6.0"
+    },
+    "processor": {
+        "name": "transaction",
+        "event": "transaction"
+    },
+    "observer": {
+        "hostname": "a0686cf97d5e",
+        "id": "5801254e-dae1-40ea-90f0-3659410676e3",
+        "ephemeral_id": "a527158d-183f-4d55-b988-7e7551c00e1f",
+        "type": "apm-server",
+        "version": "8.0.0",
+        "version_major": 8
+    },
+    "trace": {
+        "id": "93faed0b7687ff5e4fa353736641d28c"
+    },
+    "@timestamp": "2020-02-13T23:05:22.571Z",
+    "ecs": {
+        "version": "1.4.0"
+    },
+    "service": {
+        "name": "client",
+        "language": {
+            "name": "javascript"
+        },
+        "version": "1.0.0"
+    },
+    "client": {
+        "ip": "172.19.0.14"
+    },
+    "user": {
+        "name": "zaphod",
+        "id": "4",
+        "email": "z@example.com"
+    },
+    "user_agent": {
+        "original": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/79.0.3945.0 Safari/537.36",
+        "os": {
+            "name": "Linux"
+        },
+        "name": "HeadlessChrome",
+        "device": {
+            "name": "Other"
+        },
+        "version": "79.0.3945"
+    },
+    "transaction": {
+        "duration": {
+            "us": 136720
+        },
+        "custom": {
+            "userConfig": {
+                "showDashboard": true,
+                "featureFlags": [
+                    "double-trouble",
+                    "4423-hotfix"
+                ]
+            }
+        },
+        "name": "/dashboard",
+        "id": "00de2d1a73fd2c32",
+        "span_count": {
+            "started": 6
+        },
+        "marks": {
+            "agent": {
+                "domInteractive": 99,
+                "domComplete": 113,
+                "timeToFirstByte": 3
+            },
+            "navigationTiming": {
+                "responseEnd": 3,
+                "responseStart": 3,
+                "domainLookupEnd": 0,
+                "domInteractive": 99,
+                "domContentLoadedEventStart": 99,
+                "domComplete": 113,
+                "domainLookupStart": 0,
+                "connectEnd": 0,
+                "connectStart": 0,
+                "loadEventStart": 113,
+                "requestStart": 1,
+                "fetchStart": 0,
+                "domContentLoadedEventEnd": 99,
+                "loadEventEnd": 113,
+                "domLoading": 30
+            }
+        },
+        "page": {
+            "referer": "",
+            "url": "http://opbeans-node:3000/dashboard"
+        },
+        "type": "page-load",
+        "sampled": true
+    },
+    "timestamp": {
+        "us": 1581635122571180
+    },
+    "index": "apm-sample-data-transaction-1"
+}
+{
+    "parent": {
+        "id": "00de2d1a73fd2c32"
+    },
+    "agent": {
+        "name": "js-base",
+        "version": "4.6.0"
+    },
+    "error": {
+        "exception": [
+            {
+                "stacktrace": [
+                    {
+                        "library_frame": false,
+                        "exclude_from_grouping": false,
+                        "abs_path": "http://opbeans-node:3000/static/js/main.18f58ace.js",
+                        "filename": "static/js/main.18f58ace.js",
+                        "sourcemap": {
+                            "error": "No Sourcemap available for ServiceName client, ServiceVersion 1.0.0, Path http://opbeans-node:3000/static/js/main.18f58ace.js.",
+                            "updated": false
+                        },
+                        "line": {
+                            "number": 34,
+                            "column": 258942
+                        },
+                        "function": "<anonymous>"
+                    },
+                    {
+                        "exclude_from_grouping": false,
+                        "library_frame": false,
+                        "filename": "static/js/main.18f58ace.js",
+                        "abs_path": "http://opbeans-node:3000/static/js/main.18f58ace.js",
+                        "sourcemap": {
+                            "error": "No Sourcemap available for ServiceName client, ServiceVersion 1.0.0, Path http://opbeans-node:3000/static/js/main.18f58ace.js.",
+                            "updated": false
+                        },
+                        "line": {
+                            "number": 1,
+                            "column": 110
+                        },
+                        "function": "n"
+                    },
+                    {
+                        "library_frame": false,
+                        "exclude_from_grouping": false,
+                        "filename": "static/js/main.18f58ace.js",
+                        "abs_path": "http://opbeans-node:3000/static/js/main.18f58ace.js",
+                        "sourcemap": {
+                            "error": "No Sourcemap available for ServiceName client, ServiceVersion 1.0.0, Path http://opbeans-node:3000/static/js/main.18f58ace.js.",
+                            "updated": false
+                        },
+                        "line": {
+                            "number": 34,
+                            "column": 257195
+                        },
+                        "function": "<anonymous>"
+                    },
+                    {
+                        "exclude_from_grouping": false,
+                        "library_frame": false,
+                        "filename": "static/js/main.18f58ace.js",
+                        "abs_path": "http://opbeans-node:3000/static/js/main.18f58ace.js",
+                        "sourcemap": {
+                            "error": "No Sourcemap available for ServiceName client, ServiceVersion 1.0.0, Path http://opbeans-node:3000/static/js/main.18f58ace.js.",
+                            "updated": false
+                        },
+                        "line": {
+                            "number": 1,
+                            "column": 110
+                        },
+                        "function": "n"
+                    },
+                    {
+                        "library_frame": false,
+                        "exclude_from_grouping": false,
+                        "filename": "static/js/main.18f58ace.js",
+                        "abs_path": "http://opbeans-node:3000/static/js/main.18f58ace.js",
+                        "sourcemap": {
+                            "error": "No Sourcemap available for ServiceName client, ServiceVersion 1.0.0, Path http://opbeans-node:3000/static/js/main.18f58ace.js.",
+                            "updated": false
+                        },
+                        "line": {
+                            "number": 34,
+                            "column": 247500
+                        },
+                        "function": "<anonymous>"
+                    },
+                    {
+                        "library_frame": false,
+                        "exclude_from_grouping": false,
+                        "filename": "static/js/main.18f58ace.js",
+                        "abs_path": "http://opbeans-node:3000/static/js/main.18f58ace.js",
+                        "sourcemap": {
+                            "error": "No Sourcemap available for ServiceName client, ServiceVersion 1.0.0, Path http://opbeans-node:3000/static/js/main.18f58ace.js.",
+                            "updated": false
+                        },
+                        "line": {
+                            "number": 1,
+                            "column": 110
+                        },
+                        "function": "n"
+                    },
+                    {
+                        "library_frame": false,
+                        "exclude_from_grouping": false,
+                        "abs_path": "http://opbeans-node:3000/static/js/main.18f58ace.js",
+                        "filename": "static/js/main.18f58ace.js",
+                        "sourcemap": {
+                            "error": "No Sourcemap available for ServiceName client, ServiceVersion 1.0.0, Path http://opbeans-node:3000/static/js/main.18f58ace.js.",
+                            "updated": false
+                        },
+                        "line": {
+                            "number": 1,
+                            "column": 452
+                        },
+                        "function": "<anonymous>"
+                    },
+                    {
+                        "library_frame": false,
+                        "exclude_from_grouping": false,
+                        "abs_path": "http://opbeans-node:3000/static/js/main.18f58ace.js",
+                        "filename": "static/js/main.18f58ace.js",
+                        "sourcemap": {
+                            "error": "No Sourcemap available for ServiceName client, ServiceVersion 1.0.0, Path http://opbeans-node:3000/static/js/main.18f58ace.js.",
+                            "updated": false
+                        },
+                        "line": {
+                            "number": 1,
+                            "column": 463
+                        },
+                        "function": "<anonymous>"
+                    }
+                ],
+                "message": "Test CaptureError",
+                "type": "Error"
+            }
+        ],
+        "culprit": "static/js/main.18f58ace.js",
+        "custom": {
+            "userConfig": {
+                "showDashboard": true,
+                "featureFlags": [
+                    "double-trouble",
+                    "4423-hotfix"
+                ]
+            }
+        },
+        "page": {
+            "referer": "",
+            "url": "http://opbeans-node:3000/dashboard"
+        },
+        "id": "35d1a375fcc21057fee79511b5fe3e57",
+        "grouping_key": "304766748c777edb8788c13c28a03f3e"
+    },
+    "processor": {
+        "name": "error",
+        "event": "error"
+    },
+    "observer": {
+        "hostname": "a0686cf97d5e",
+        "id": "5801254e-dae1-40ea-90f0-3659410676e3",
+        "ephemeral_id": "a527158d-183f-4d55-b988-7e7551c00e1f",
+        "type": "apm-server",
+        "version": "8.0.0",
+        "version_major": 8
+    },
+    "trace": {
+        "id": "93faed0b7687ff5e4fa353736641d28c"
+    },
+    "@timestamp": "2020-02-13T23:05:22.485Z",
+    "ecs": {
+        "version": "1.4.0"
+    },
+    "service": {
+        "name": "client",
+        "language": {
+            "name": "javascript"
+        },
+        "version": "1.0.0"
+    },
+    "client": {
+        "ip": "172.19.0.14"
+    },
+    "user": {
+        "name": "zaphod",
+        "id": "4",
+        "email": "z@example.com"
+    },
+    "user_agent": {
+        "original": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/79.0.3945.0 Safari/537.36",
+        "os": {
+            "name": "Linux"
+        },
+        "name": "HeadlessChrome",
+        "device": {
+            "name": "Other"
+        },
+        "version": "79.0.3945"
+    },
+    "transaction": {
+        "id": "00de2d1a73fd2c32",
+        "type": "page-load",
+        "sampled": true
+    },
+    "timestamp": {
+        "us": 1581635122485866
+    },
+    "index": "apm-sample-data-error-1"
+}
+{
+    "parent": {
+        "id": "00de2d1a73fd2c32"
+    },
+    "agent": {
+        "name": "js-base",
+        "version": "4.6.0"
+    },
+    "error": {
+        "exception": [
+            {
+                "stacktrace": [
+                    {
+                        "library_frame": false,
+                        "exclude_from_grouping": false,
+                        "filename": "(inline script)",
+                        "abs_path": "http://opbeans-node:3000/dashboard",
+                        "sourcemap": {
+                            "error": "No Sourcemap available for ServiceName client, ServiceVersion 1.0.0, Path http://opbeans-node:3000/dashboard.",
+                            "updated": false
+                        },
+                        "line": {
+                            "number": 1,
+                            "column": 695
+                        },
+                        "function": "generateError"
+                    },
+                    {
+                        "library_frame": false,
+                        "exclude_from_grouping": false,
+                        "abs_path": "http://opbeans-node:3000/dashboard",
+                        "filename": "(inline script)",
+                        "sourcemap": {
+                            "error": "No Sourcemap available for ServiceName client, ServiceVersion 1.0.0, Path http://opbeans-node:3000/dashboard.",
+                            "updated": false
+                        },
+                        "line": {
+                            "number": 1,
+                            "column": 783
+                        },
+                        "function": "<anonymous>"
+                    }
+                ],
+                "message": "Uncaught Error: Test Error in dashboard",
+                "type": "Error"
+            }
+        ],
+        "culprit": "(inline script)",
+        "custom": {
+            "userConfig": {
+                "showDashboard": true,
+                "featureFlags": [
+                    "double-trouble",
+                    "4423-hotfix"
+                ]
+            }
+        },
+        "id": "e890eea999140611b99e344b1f3ff0a2",
+        "page": {
+            "referer": "",
+            "url": "http://opbeans-node:3000/dashboard"
+        },
+        "grouping_key": "990dec42fb72b0038fdb8a839bfa1b74"
+    },
+    "processor": {
+        "name": "error",
+        "event": "error"
+    },
+    "observer": {
+        "hostname": "a0686cf97d5e",
+        "id": "5801254e-dae1-40ea-90f0-3659410676e3",
+        "ephemeral_id": "a527158d-183f-4d55-b988-7e7551c00e1f",
+        "type": "apm-server",
+        "version": "8.0.0",
+        "version_major": 8
+    },
+    "trace": {
+        "id": "93faed0b7687ff5e4fa353736641d28c"
+    },
+    "@timestamp": "2020-02-13T23:05:22.485Z",
+    "ecs": {
+        "version": "1.4.0"
+    },
+    "service": {
+        "name": "client",
+        "language": {
+            "name": "javascript"
+        },
+        "version": "1.0.0"
+    },
+    "client": {
+        "ip": "172.19.0.14"
+    },
+    "user": {
+        "name": "zaphod",
+        "id": "4",
+        "email": "z@example.com"
+    },
+    "user_agent": {
+        "original": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/79.0.3945.0 Safari/537.36",
+        "os": {
+            "name": "Linux"
+        },
+        "name": "HeadlessChrome",
+        "device": {
+            "name": "Other"
+        },
+        "version": "79.0.3945"
+    },
+    "transaction": {
+        "id": "00de2d1a73fd2c32",
+        "type": "page-load",
+        "sampled": true
+    },
+    "timestamp": {
+        "us": 1581635122485866
+    },
+    "index": "apm-sample-data-error-1"
+}
