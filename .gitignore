@@ -1,2 +1,3 @@
 scripts/generate-fake-data/data
 database.db
+test-data.json
