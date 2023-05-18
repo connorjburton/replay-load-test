@@ -1,7 +1,14 @@
 version: "3"
 
 services:
-  web:
+  bin-web-app:
+    build:
+      context: ./scripts/bin-web-app
+    ports:
+      - '8080:8080'
+  replay-load-test:
+    depends_on:
+      - bin-web-app
     build:
       context: .
     ports:
