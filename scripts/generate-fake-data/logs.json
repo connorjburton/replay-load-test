@@ -16,6 +16,15 @@
       "type": "object",
       "request": {
         "type": "object",
+        "headers": {
+          "type": "object",
+          "User-Agent": {
+            "type": "string",
+            "faker": {
+              "generator": "user_agent"
+            }
+          }
+        },
         "method": {
           "type": "string",
           "categorical": {
@@ -27,12 +36,15 @@
         }
       }
     },
-    "date": {
-      "type": "series",
-      "format": "%d/%b/%Y:%H:%M:%S",
-      "poisson": {
-        "start": "10/Oct/2000:13:55:36",
-        "rate": "10m"
+    "timestamp": {
+      "type": "object",
+      "us": {
+        "type": "series",
+        "format": "%s",
+        "poisson": {
+          "start": "994518299",
+          "rate": "10m"
+        }
       }
     },
     "host": {
