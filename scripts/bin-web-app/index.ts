@@ -13,7 +13,7 @@ async function serveHttp(conn: Deno.Conn) {
 			requestEvent.request.headers.get("user-agent") ?? "Unknown"
 		}`;
 		
-		console.log(`Received request to ${requestEvent.request.method} ${requestEvent.request.url}`);
+		console.log(`Received request to ${requestEvent.request.method} ${requestEvent.request.url} with user agent ${requestEvent.request.headers.get('User-Agent')}`);
 
     	requestEvent.respondWith(
 			new Response(body, {
