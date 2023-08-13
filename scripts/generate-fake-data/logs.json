@@ -36,16 +36,12 @@
         }
       }
     },
-    "timestamp": {
-      "type": "object",
-      "us": {
-        "type": "series",
-        "format": "%s",
-        "poisson": {
-          "start": "994518299",
-          "rate": "10m"
-        }
-      }
+    "@timestamp": {
+      "type": "date_time",
+      "format": "%Y-%m-%dT%H:%M:%S%.3fZ",
+      "subtype": "naive_date_time",
+      "begin": "2015-01-01T08:00:00.000Z",
+      "end": "2015-01-01T08:05:00.000Z"
     },
     "host": {
       "type": "string",
