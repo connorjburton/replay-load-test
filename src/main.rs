@@ -1,17 +1,20 @@
-use std::time::Duration;
-use std::thread;
 use std::collections::HashMap;
+use std::sync::Arc;
+use std::fs;
 
 use serde::Deserialize;
 use serde::de::{self, Deserializer};
 use chrono::DateTime;
+use http::HeaderMap;
+use tokio::time::{Duration, sleep};
 
 #[derive(Deserialize, Debug)]
 #[serde(rename_all = "UPPERCASE")]
 enum Method {
     Get,
     Post,
-    Patch
+    Patch,
+    Put
 }
 
 #[derive(Deserialize, Debug)]
@@ -49,85 +52,53 @@ where
     }
 }
 
-fn main() -> Result<(), serde_json::Error> {
-    let data = r#"[
-    {
-        "@timestamp": "2015-01-01T08:00:07.753Z",
-        "http": {
-            "request": {
-                "headers": {
-                    "User-Agent": "Mozilla/5.0 (X11; OpenBSD amd64; rv:28.0) Gecko/20100101 Firefox/28.0"
-                },
-                "method": "POST"
-            }
-        },
-        "url": {
-            "path": "bad.png"
-        }
-    },
-    {
-        "@timestamp": "2015-01-01T08:03:30.249Z",
-        "http": {
-            "request": {
-                "headers": {
-                    "User-Agent": "Mozilla/5.0 (Windows NT 6.1; WOW64; Trident/7.0; AS; rv:11.0) like Gecko"
-                },
-                "method": "GET"
-            }
-        },
-        "url": {
-            "path": "large.mp3"
-        }
-    },
-    {
-        "@timestamp": "2015-01-01T08:00:11.635Z",
-        "http": {
-            "request": {
-                "headers": {
-                    "User-Agent": "Mozilla/5.0 (Windows NT 6.1; WOW64; rv:40.0) Gecko/20100101 Firefox/40.1"
-                },
-                "method": "PATCH"
-            }
-        },
-        "url": {
-            "path": "olivia.jpg"
-        }
-    }
-    ]"#;
+async fn send_request(client: Arc<reqwest::Client>, record: Record) -> Result<reqwest::Response, reqwest::Error> {
+    let headers: HeaderMap = (&record.http.request.headers).try_into().expect("valid headers");
+    let url = format!("http://bin-web-app:8080/{}", record.url.path);
+    let builder = match record.http.request.method {
+        Method::Get => client.get(url),
+        Method::Post => client.post(url),
+        Method::Patch => client.patch(url),
+        Method::Put => client.put(url)
+    };
+
+    builder.headers(headers).send().await
+}
+
+#[tokio::main]
+async fn main() -> Result<(), Box<dyn std::error::Error>> {
+    let data = fs::read_to_string("./test-data.json")?;
 
     let mut de: Vec<Record> = serde_json::from_str(&data)?;
 
     de.sort_by(|a, b| a.timestamp.cmp(&b.timestamp));
 
     let start_timestamp = de[0].timestamp;
+    let client = Arc::new(reqwest::Client::new());
 
-    let handles: Vec<_> = de.into_iter().map(|record| {
-        thread::spawn(move || {
-            println!("sleeping for {}ms", record.timestamp - start_timestamp);
-            thread::sleep(Duration::from_millis(record.timestamp - start_timestamp));
+    let mut tasks = Vec::new();
+
+    for record in de {
+        let client_clone = Arc::clone(&client);
+        let sleep_duration = Duration::from_millis(record.timestamp - start_timestamp);
+
+        let task = tokio::spawn(async move {
+            sleep(sleep_duration).await;
             println!(
                 "going to send request for {}",
                 record.url.path
             );
-        })
-    }).collect();
+            if let Err(err) = send_request(client_clone, record).await {
+                eprintln!("Error sending request: {:?}", err);
+            }
+        });
 
-    for handle in handles {
-        handle.join().unwrap();
+        tasks.push(task);
+    };
+
+    for task in tasks {
+        task.await?;
     }
-
-    // for record in de.iter() {
-    //     let record_clone = record.clone();
-    //     println!("{:#?}", record);
-    //         // record,
-    //         // delta: record.timestamp - start_timestamp
-
-    //     let handle = thread::spawn(move || {
-    //         println!("going to send request, delta {}", record_clone.timestamp - start_timestamp);
-    //     });
-
-    //     handle.join().unwrap();
-    // }
 
     Ok(())
 }

@@ -11,7 +11,7 @@ services:
       - bin-web-app
     build:
       context: .
-      dockerfile: Dockerfile.deno
+      dockerfile: Dockerfile.rust
     ports:
       - "3000:3000"
     environment:
