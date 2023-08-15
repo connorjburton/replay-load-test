@@ -1,6 +1,7 @@
 use std::collections::HashMap;
 use std::sync::Arc;
 use std::fs;
+use std::time::Instant;
 
 use serde::Deserialize;
 use serde::de::{self, Deserializer};
@@ -52,7 +53,28 @@ where
     }
 }
 
-async fn send_request(client: Arc<reqwest::Client>, record: Record) -> Result<reqwest::Response, reqwest::Error> {
+async fn send_request(client: Arc<reqwest::Client>, record: Record, delta: u64) -> Result<reqwest::Response, reqwest::Error> {
+    let start = Instant::now();
+    sleep(Duration::from_millis(delta)).await;
+    let end = Instant::now();
+    let jitter = (end - start) - Duration::from_millis(delta);
+
+    println!(
+        "Jitter for {}: {:?} ({:?}, {:?}, {:?}ms, {:?}ms)",
+        record.url.path,
+        jitter,
+        end,
+        start,
+        delta,
+        end.duration_since(start).as_millis()
+    );
+
+    println!(
+        "Sending request to {:?} {}",
+        record.http.request.method,
+        record.url.path
+    );
+
     let headers: HeaderMap = (&record.http.request.headers).try_into().expect("valid headers");
     let url = format!("http://bin-web-app:8080/{}", record.url.path);
     let builder = match record.http.request.method {
@@ -80,15 +102,10 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
 
     for record in de {
         let client_clone = Arc::clone(&client);
-        let sleep_duration = Duration::from_millis(record.timestamp - start_timestamp);
+        let delta = record.timestamp - start_timestamp;
 
         let task = tokio::spawn(async move {
-            sleep(sleep_duration).await;
-            println!(
-                "going to send request for {}",
-                record.url.path
-            );
-            if let Err(err) = send_request(client_clone, record).await {
+            if let Err(err) = send_request(client_clone, record, delta).await {
                 eprintln!("Error sending request: {:?}", err);
             }
         });
