@@ -1,5 +1,5 @@
 use std::collections::HashMap;
-use std::sync::Arc;
+use std::sync::{Arc, Mutex};
 use std::fs;
 use std::time::Instant;
 
@@ -53,27 +53,32 @@ where
     }
 }
 
-async fn send_request(client: Arc<reqwest::Client>, record: Record, delta: u64) -> Result<reqwest::Response, reqwest::Error> {
+async fn send_request(client: Arc<reqwest::Client>, record: Record, delta: u64, jitter_accumulator: Arc<Mutex<Vec<Duration>>>) -> Result<reqwest::Response, reqwest::Error> {
     let start = Instant::now();
     sleep(Duration::from_millis(delta)).await;
     let end = Instant::now();
     let jitter = (end - start) - Duration::from_millis(delta);
 
-    println!(
-        "Jitter for {}: {:?} ({:?}, {:?}, {:?}ms, {:?}ms)",
-        record.url.path,
-        jitter,
-        end,
-        start,
-        delta,
-        end.duration_since(start).as_millis()
-    );
+    {
+        let mut jitter_values = jitter_accumulator.lock().unwrap();
+        jitter_values.push(jitter);
+    }
 
-    println!(
-        "Sending request to {:?} {}",
-        record.http.request.method,
-        record.url.path
-    );
+    // println!(
+    //     "Jitter for {}: {:?} ({:?}, {:?}, {:?}ms, {:?}ms)",
+    //     record.url.path,
+    //     jitter,
+    //     end,
+    //     start,
+    //     delta,
+    //     end.duration_since(start).as_millis()
+    // );
+
+    // println!(
+    //     "Sending request to {:?} {}",
+    //     record.http.request.method,
+    //     record.url.path
+    // );
 
     let headers: HeaderMap = (&record.http.request.headers).try_into().expect("valid headers");
     let url = format!("http://bin-web-app:8080/{}", record.url.path);
@@ -97,15 +102,17 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
 
     let start_timestamp = de[0].timestamp;
     let client = Arc::new(reqwest::Client::new());
+    let jitter_accumulator: Arc<Mutex<Vec<Duration>>> = Arc::new(Mutex::new(Vec::new()));
 
     let mut tasks = Vec::new();
 
     for record in de {
         let client_clone = Arc::clone(&client);
+        let jitter_accumulator_clone = Arc::clone(&jitter_accumulator);
         let delta = record.timestamp - start_timestamp;
 
         let task = tokio::spawn(async move {
-            if let Err(err) = send_request(client_clone, record, delta).await {
+            if let Err(err) = send_request(client_clone, record, delta, jitter_accumulator_clone).await {
                 eprintln!("Error sending request: {:?}", err);
             }
         });
@@ -116,6 +123,18 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
     for task in tasks {
         task.await?;
     }
+
+    let jitter_values = jitter_accumulator.lock().unwrap();
+    let num_jitters = jitter_values.len();
+    let total_jitter: Duration = jitter_values.iter().sum();
+    let average_jitter = total_jitter / num_jitters as u32;
+
+    let min_jitter = jitter_values.iter().min().expect("Can't get min");
+    let max_jitter = jitter_values.iter().max().expect("Can't get max");
+
+    println!("Average Jitter: {:?}", average_jitter);
+    println!("Minimum Jitter: {:?}", min_jitter);
+    println!("Maximum Jitter: {:?}", max_jitter);
 
     Ok(())
 }
