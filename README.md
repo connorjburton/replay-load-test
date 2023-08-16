@@ -100,6 +100,6 @@ All tests ran with no logging other than start/end.
         - Maximum: 372ms
 - Rust 1.67 (Tokio)
     - Jitter
-        - Average: 1.08ms
-        - Minimum: 0.01ms
-        - Maximum: 11ms
+        - Average: 1.05ms
+        - Minimum: 0.007ms
+        - Maximum: 3.05ms
