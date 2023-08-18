@@ -17,7 +17,7 @@ services:
       BUILDKIT_PROGRESS: plain
     depends_on:
       - bin-web-app
-      - generate-fake-data
+      # - generate-fake-data
     build:
       context: .
       dockerfile: Dockerfile.rust
