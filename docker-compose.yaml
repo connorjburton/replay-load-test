@@ -6,15 +6,25 @@ services:
       context: ./scripts/bin-web-app
     ports:
       - '8080:8080'
+  generate-fake-data:
+    build:
+      context: ./scripts/generate-fake-data
+      target: generate
+    volumes:
+      - test-data:/app/data
   replay-load-test:
+    environment:
+      BUILDKIT_PROGRESS: plain
     depends_on:
       - bin-web-app
+      - generate-fake-data
     build:
       context: .
       dockerfile: Dockerfile.rust
     ports:
       - "3000:3000"
-    environment:
-      - DATABASE_URL=sqlite://./data/db.sqlite
     volumes:
-      - .:/app
+      - test-data:/app/data
+
+volumes:
+  test-data:

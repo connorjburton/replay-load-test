@@ -94,7 +94,7 @@ async fn send_request(client: Arc<reqwest::Client>, record: Record, delta: u64, 
 
 #[tokio::main]
 async fn main() -> Result<(), Box<dyn std::error::Error>> {
-    let data = fs::read_to_string("./test-data.json")?;
+    let data = fs::read_to_string("./data/test-data.json")?;
 
     let mut de: Vec<Record> = serde_json::from_str(&data)?;
 
