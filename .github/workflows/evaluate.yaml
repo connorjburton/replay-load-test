@@ -1,0 +1,17 @@
+name: Evaluate
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  run-load-test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Run docker compose
+        run: docker compose up
+        run: docker logs $(docker container ls --all  | grep 'replay-load-test-replay-load-test' | awk '{print $1}') >> $GITHUB_STEP_SUMMARY
