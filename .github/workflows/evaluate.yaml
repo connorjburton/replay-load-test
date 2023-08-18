@@ -12,10 +12,12 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
+        # Would like to install snyth and generate fake data via docker compose but gh actions
+        # does not like compose volumes, so manually generate it here instead
       - name: Install synth
         run: curl --proto "=https" --tlsv1.2 -sSL https://getsynth.com/install | sh -s -- --ci
       - name: Generate fake data
-        run: synth generate . --collection logs --size 1000 --to json:./test-data.json
+        run: cp scripts/generate-fake-data/logs.json ./logs.json && synth generate . --collection logs --size 1000 --to json:./test-data.json
       - name: Remove lines from docker compose
         run: yq eval -i 'del(.services."generate-fake-data") | del(.services.replay-load-test.depends_on[1]) | del(.services.replay-load-test.volumes[1]) | del(.volumes)' input.yaml
       - name: Run docker compose
