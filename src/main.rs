@@ -4,7 +4,7 @@ use std::sync::{Arc, Mutex};
 use std::time::Instant;
 
 use chrono::DateTime;
-use futures::stream::{FuturesOrdered, StreamExt};
+use futures::stream::{FuturesUnordered, StreamExt};
 use http::HeaderMap;
 use serde::de::{self, Deserializer};
 use serde::Deserialize;
@@ -112,7 +112,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
     let client = Arc::new(reqwest::Client::new());
     let jitter_accumulator: Arc<Mutex<Vec<Duration>>> = Arc::new(Mutex::new(Vec::new()));
 
-    let mut futures: FuturesOrdered<_> = de
+    let mut futures: FuturesUnordered<_> = de
         .into_iter()
         .map(|record| {
             let client_clone = Arc::clone(&client);
