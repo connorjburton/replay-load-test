@@ -9,9 +9,6 @@ on:
 jobs:
   run-load-test:
     runs-on: ubuntu-latest
-    container:
-      volumes:
-        - test-data:/volume_mount
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
