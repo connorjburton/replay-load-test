@@ -17,7 +17,7 @@ jobs:
       - name: Install synth
         run: curl --proto "=https" --tlsv1.2 -sSL https://getsynth.com/install | sh -s -- --ci
       - name: Generate fake data
-        run: cp scripts/generate-fake-data/logs.json ./logs.json && synth generate . --collection logs --size 1000 --to json:./test-data.json
+        run: cd scripts/generate-fake-data && synth generate . --collection logs --size 1000 --to json:./test-data.json && mv data/test-data.json ../../test-data.json
       - name: Remove lines from docker compose
         run: yq eval -i 'del(.services."generate-fake-data") | del(.services.replay-load-test.depends_on[1]) | del(.services.replay-load-test.volumes[1]) | del(.volumes)' input.yaml
       - name: Run docker compose
