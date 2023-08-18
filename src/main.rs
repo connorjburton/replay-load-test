@@ -1,13 +1,14 @@
 use std::collections::HashMap;
-use std::sync::{Arc, Mutex};
 use std::fs;
+use std::sync::{Arc, Mutex};
 use std::time::Instant;
 
-use serde::Deserialize;
-use serde::de::{self, Deserializer};
 use chrono::DateTime;
+use futures::stream::{FuturesOrdered, StreamExt};
 use http::HeaderMap;
-use tokio::time::{Duration, sleep};
+use serde::de::{self, Deserializer};
+use serde::Deserialize;
+use tokio::time::{sleep, Duration};
 
 #[derive(Deserialize, Debug)]
 #[serde(rename_all = "UPPERCASE")]
@@ -15,23 +16,23 @@ enum Method {
     Get,
     Post,
     Patch,
-    Put
+    Put,
 }
 
 #[derive(Deserialize, Debug)]
 struct Url {
-    path: String
+    path: String,
 }
 
 #[derive(Deserialize, Debug)]
 struct Request {
     headers: HashMap<String, String>,
-    method: Method
+    method: Method,
 }
 
 #[derive(Deserialize, Debug)]
 struct Http {
-    request: Request
+    request: Request,
 }
 
 #[derive(Deserialize, Debug)]
@@ -49,11 +50,16 @@ where
     let timestamp_str = String::deserialize(deserializer)?;
     match DateTime::parse_from_rfc3339(&timestamp_str) {
         Ok(dt) => Ok(dt.timestamp_millis() as u64),
-        Err(_) => Err(de::Error::custom("Invalid timestamp format"))
+        Err(_) => Err(de::Error::custom("Invalid timestamp format")),
     }
 }
 
-async fn send_request(client: Arc<reqwest::Client>, record: Record, delta: u64, jitter_accumulator: Arc<Mutex<Vec<Duration>>>) -> Result<reqwest::Response, reqwest::Error> {
+async fn send_request(
+    client: Arc<reqwest::Client>,
+    record: Record,
+    delta: u64,
+    jitter_accumulator: Arc<Mutex<Vec<Duration>>>,
+) -> Result<reqwest::Response, reqwest::Error> {
     let start = Instant::now();
     sleep(Duration::from_millis(delta)).await;
     let end = Instant::now();
@@ -80,13 +86,15 @@ async fn send_request(client: Arc<reqwest::Client>, record: Record, delta: u64, 
     //     record.url.path
     // );
 
-    let headers: HeaderMap = (&record.http.request.headers).try_into().expect("valid headers");
+    let headers: HeaderMap = (&record.http.request.headers)
+        .try_into()
+        .expect("valid headers");
     let url = format!("http://bin-web-app:8080/{}", record.url.path);
     let builder = match record.http.request.method {
         Method::Get => client.get(url),
         Method::Post => client.post(url),
         Method::Patch => client.patch(url),
-        Method::Put => client.put(url)
+        Method::Put => client.put(url),
     };
 
     builder.headers(headers).send().await
@@ -104,25 +112,24 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
     let client = Arc::new(reqwest::Client::new());
     let jitter_accumulator: Arc<Mutex<Vec<Duration>>> = Arc::new(Mutex::new(Vec::new()));
 
-    let mut tasks = Vec::new();
+    let mut futures: FuturesOrdered<_> = de
+        .into_iter()
+        .map(|record| {
+            let client_clone = Arc::clone(&client);
+            let jitter_accumulator_clone = Arc::clone(&jitter_accumulator);
+            let delta = record.timestamp - start_timestamp;
 
-    for record in de {
-        let client_clone = Arc::clone(&client);
-        let jitter_accumulator_clone = Arc::clone(&jitter_accumulator);
-        let delta = record.timestamp - start_timestamp;
-
-        let task = tokio::spawn(async move {
-            if let Err(err) = send_request(client_clone, record, delta, jitter_accumulator_clone).await {
-                eprintln!("Error sending request: {:?}", err);
+            async move {
+                if let Err(err) =
+                    send_request(client_clone, record, delta, jitter_accumulator_clone).await
+                {
+                    eprintln!("Error sending request: {:?}", err);
+                }
             }
-        });
+        })
+        .collect();
 
-        tasks.push(task);
-    };
-
-    for task in tasks {
-        task.await?;
-    }
+    while futures.next().await.is_some() {}
 
     let jitter_values = jitter_accumulator.lock().unwrap();
     let num_jitters = jitter_values.len();
