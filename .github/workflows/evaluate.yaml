@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
         # Would like to install snyth and generate fake data via docker compose but gh actions
         # does not like compose volumes, so manually generate it here instead
       - name: Install synth
