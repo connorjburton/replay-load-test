@@ -1,4 +1,4 @@
-import testData from './test-data.json' assert { type: "json" };
+import testData from '../data/test-data.json' assert { type: "json" };
 
 const timestampToNumber = (data) => {
   return {

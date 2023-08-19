@@ -6,4 +6,4 @@ WORKDIR /app
 
 COPY . .
 
-CMD ["run", "--allow-read", "--allow-net=bin-web-app:8080", "index.ts"]
+CMD ["run", "--allow-read", "--allow-net=bin-web-app:8080", "deno/index.ts"]
