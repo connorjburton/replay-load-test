@@ -1,4 +1,4 @@
-name: Evaluate
+name: Evaluate (Rust)
 
 on:
   push:
@@ -17,10 +17,14 @@ jobs:
       - name: Install synth
         run: curl --proto "=https" --tlsv1.2 -sSL https://getsynth.com/install | sh -s -- --ci
       - name: Generate fake data
-        run: cd scripts/generate-fake-data && synth generate . --collection logs --size 1000 --to json:./test-data.json && mv ./test-data.json ../../test-data.json
+        run: cd scripts/generate-fake-data && synth generate . --collection logs --size 1000 --to json:./data/test-data.json && mv ./test-data.json ../../test-data.json
       - name: Remove lines from docker compose
         run: yq eval -i 'del(.services."generate-fake-data") | del(.services.replay-load-test.depends_on[1]) | del(.services.replay-load-test.volumes) | del(.volumes)' docker-compose.yaml
       - name: Run docker compose
         run: docker compose up --exit-code-from replay-load-test
+      - name: Run docker compose (Node)
+        run: |
+          yq -i '.services.replay-load-test.build.dockerfile = "Dockerfile.node" docker-compose.yaml
+          docker compose up --exit-code-from replay-load-test
       - name: Point container logs to summary
         run: docker logs $(docker container ls --all  | grep 'replay-load-test-replay-load-test' | awk '{print $1}') >> $GITHUB_STEP_SUMMARY
