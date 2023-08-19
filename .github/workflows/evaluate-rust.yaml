@@ -6,7 +6,7 @@ on:
       - main
     paths:
       - src/**
-      - .github/workflows
+      - .github/workflows/**
   workflow_dispatch:
 
 jobs:

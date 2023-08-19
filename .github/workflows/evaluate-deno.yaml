@@ -6,7 +6,7 @@ on:
       - main
     paths:
       - deno/**
-      - .github/workflows
+      - .github/workflows/**
   workflow_dispatch:
 
 jobs:
