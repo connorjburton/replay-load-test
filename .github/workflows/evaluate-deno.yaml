@@ -28,7 +28,7 @@ jobs:
         run: yq eval -i 'del(.services."generate-fake-data") | del(.services.replay-load-test.depends_on[1]) | del(.services.replay-load-test.volumes) | del(.volumes)' docker-compose.yaml
       - name: Run docker compose
         run: |
-          yq -i '.services.replay-load-test.build.dockerfile = "Dockerfile.deno" docker-compose.yaml
+          yq -i '.services.replay-load-test.build.dockerfile = "Dockerfile.deno"' docker-compose.yaml
           docker compose up --exit-code-from replay-load-test
       - name: Point container logs to summary
         run: docker logs $(docker container ls --all  | grep 'replay-load-test-replay-load-test' | awk '{print $1}') >> $GITHUB_STEP_SUMMARY
