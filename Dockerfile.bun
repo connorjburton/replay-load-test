@@ -1,0 +1,7 @@
+FROM oven/bun:0.7.3
+
+WORKDIR /app
+
+COPY . .
+
+CMD ["bun", "run", "bun/index.ts"]
