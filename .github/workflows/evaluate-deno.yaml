@@ -21,7 +21,7 @@ jobs:
       - name: Generate fake data
         run: |
           NUM=1000
-          echo "Testing against $TOTAL records" >> $GITHUB_STEP_SUMMARY
+          echo "Testing against $NUM records" >> $GITHUB_STEP_SUMMARY
           mkdir data
           cd scripts/generate-fake-data
           synth generate . --collection logs --size $NUM --to json:./test-data.json
