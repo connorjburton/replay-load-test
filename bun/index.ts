@@ -15,10 +15,10 @@ const wrapFinish = async (fn) => {
 
   // console.log(`Finished making requests after ${performance.measure('requests', 'start-requests', 'finish-requests').duration}ms, ${success}/${total} succeeded, ${failure} failed`);
   const sortedJitter = jitter.sort((a, b) => a - b);
-  console.log('Jitter stats:');
-  console.log(`Average ${sortedJitter.reduce((a, b) => a + b, 0) / sortedJitter.length}ms`);
-  console.log(`Minimum ${sortedJitter[0]}ms`);
-  console.log(`Maximum ${sortedJitter[jitter.length - 1]}ms`);
+  // console.log('Jitter stats:');
+  console.log(`Average Jitter: ${sortedJitter.reduce((a, b) => a + b, 0) / sortedJitter.length}ms`);
+  console.log(`Minimum Jitter: ${sortedJitter[0]}ms`);
+  console.log(`Maximum Jitter: ${sortedJitter[jitter.length - 1]}ms`);
 }
 
 const sendRequest = async (data, scheduled, delta) => {
@@ -50,25 +50,25 @@ const sendRequest = async (data, scheduled, delta) => {
 
 const sortedData = testData.map(timestampToNumber).sort((a, b) => a['@timestamp'] - b['@timestamp']);
 const deltas = calculateDeltas(sortedData);
-console.log('start', new Date(sortedData[0]['@timestamp']), 'end', new Date(sortedData[sortedData.length - 1]['@timestamp']));
-console.log('Length of deltas is ', deltas.length);
-console.log('Length of data is ', sortedData.length);
+// console.log('start', new Date(sortedData[0]['@timestamp']), 'end', new Date(sortedData[sortedData.length - 1]['@timestamp']));
+// console.log('Length of deltas is ', deltas.length);
+// console.log('Length of data is ', sortedData.length);
 
-console.log(`Should take ${deltas[deltas.length - 1]}ms to finish`);
+// console.log(`Should take ${deltas[deltas.length - 1]}ms to finish`);
 
 // STEP 2:
 // - Set timeouts for every timestamp
 // - Each timeout will perform all the requests for that millisecond
 // - As we start at 0 the timers will start executing as we start setting them
 // - TODO: Batch these so we don't set thousands of timers
-const total = sortedData.length;
+// const total = sortedData.length;
 let success = 0;
 let failure = 0;
 const jitter: number[] = [];
 
 // performance.mark('start-requests');
 
-console.log('Starting requests');
+// console.log('Starting requests');
 
 const timers: number[] = [];
 
@@ -78,4 +78,4 @@ deltas.forEach((delta, idx) => {
   timers.push(setTimeout(callback, delta));
 });
 
-console.log(`Set all timers, currently have ${timers.length}`);
+// console.log(`Set all timers, currently have ${timers.length}`);
