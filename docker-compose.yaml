@@ -20,7 +20,7 @@ services:
       - generate-fake-data
     build:
       context: .
-      dockerfile: Dockerfile.bun
+      dockerfile: Dockerfile.rust
     ports:
       - "3000:3000"
     volumes:
