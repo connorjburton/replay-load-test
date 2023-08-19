@@ -18,15 +18,25 @@ The language that is used should have perform well on the following metrics, whi
 
 ## Running evaluation
 
-This tool has been written in 3 (to be 4) different lanaguages and/or runtimes. Each with it's own `Dockerfile`.
+This tool has been written in 4 (to be 5) different lanaguages and/or runtimes. Each with it's own `Dockerfile`.
 
-To run this you first need to generate some test data, see `scripts/generate-fake-data/README.md`, then copy the generated file in `scripts/generate-fake-data/data` into the root directory, renaming the file to `test-data.json`. You can change the `scripts/generate-fake-data/Dockerfile` to specify how many test records you would like to test against.
+There are two main ways to run these evaluations
 
-Once you have a `test-data.json` file in the root directory, you can run specify which language/runtime you would like to evaluate by changing the `dockerfile` property in `docker-compose.yaml`.
+### Locally via Docker Compose
 
-Finally, to start the evaluation, run `docker compose up --build`. You need to pass `--build` to ensure the `test-data.json` file is coped into the docker image at build time.
+For development purposes you may want to run these evaluations locally, there is a provided `docker-compose.yaml` that handles this. Ensure that `docker-compose.yaml` is pointing to the `Dockerfile` you want and then run `docker compose up --build`, this will automatically generate test data and run the evaluation against the specified `Dockerfile`.
 
-Each implementation will, by default, not output any logs for outgoing requests, however the Nginx server it sends requests to (see `scripts/bin-web-app`) will log out requests it recieves. This is to minimise inteference with collecting jitter metrics. At the end of each implementation it will log out the the average/min/max jitter values it collected.
+### GitHub Actions
+
+There is a GitHub workflow file per language/runtime. These are triggred when the `main` branch is updated and their respective folder, or the workflows folder, is updated. This is to prevent running needless tests.
+
+Each workflow can also be ran manually.
+
+All job summaries will be consistent so comparing results across all languages/runtimes is trivial.
+
+The workflows do generate fake data slightly differently to how it's done via `docker compose` locally, however it should have no impact on the performance of the test.
+
+Local results should not be compared to results from GitHub actions due to hardware differences.
 
 ## Evaulation Results
 
