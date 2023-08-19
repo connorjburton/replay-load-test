@@ -6,6 +6,7 @@ on:
       - main
     paths:
       - src/**
+      - .github/workflows
   workflow_dispatch:
 
 jobs:
@@ -20,7 +21,7 @@ jobs:
         run: curl --proto "=https" --tlsv1.2 -sSL https://getsynth.com/install | sh -s -- --ci
       - name: Generate fake data
         run: |
-          NUM=1000
+          NUM=10000
           echo "Testing against $NUM records" >> $GITHUB_STEP_SUMMARY
           mkdir data
           cd scripts/generate-fake-data
