@@ -45,6 +45,9 @@ const sendRequest = async (data, scheduled, delta) => {
   // console.log(`Request to ${data.http.request.method} ${url} was successful with status code ${resp.status}`);
 
   if (resp.status === 200) {
+    // mitigates SocketError: other side closed 
+    // https://github.com/nodejs/undici/issues/583
+    await resp.text();
     success++;
   } else {
     failure++;
