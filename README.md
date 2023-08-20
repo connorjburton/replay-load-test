@@ -20,7 +20,9 @@ The language that is used should have perform well on the following metrics, whi
 
 This tool has been written in 4 (to be 5) different lanaguages and/or runtimes. Each with it's own `Dockerfile`.
 
-There are two main ways to run these evaluations
+You will not see output until the end of the evaluation, you can turn on Nginx logging by enabling `access_log` in `scripts/bin-web-app/server.conf`.
+
+There are two ways to run these evaluations.
 
 ### Locally via Docker Compose
 
