@@ -1,5 +1,12 @@
 import testData from '../data/test-data.json' assert { type: "json" };
 
+import { Agent } from 'https';
+
+const agent = new Agent({
+  keepAlive: true,
+  scheduling: 'fifo'
+});
+
 const timestampToNumber = (data) => {
   return {
     ...data,
@@ -31,7 +38,8 @@ const sendRequest = async (data, scheduled, delta) => {
   // console.log(`Sending request to ${data.http.request.method} ${url} at ${new Date()}`);
   const resp = await fetch(url, {
     method: data.http.request.method,
-    headers: data.http.request.headers
+    headers: data.http.request.headers,
+    agent
   });
 
   // console.log(`Request to ${data.http.request.method} ${url} was successful with status code ${resp.status}`);
