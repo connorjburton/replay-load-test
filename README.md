@@ -16,6 +16,14 @@ The language that is used should have perform well on the following metrics, whi
 - **Resource usage.** Using a smaller amount of resources to run the application is better
 - **Concurrency.** Being able to perform workloads without affecting the timing of the application is important for progressive scheduling.
 
+## TODO
+
+- [] Measure memory usage
+- [] Measure CPU usage
+- [] Evaluate against HTTPS nginx
+- [] Generate larger test data for Rust
+- [] Write Go implementation
+
 ## Running evaluation
 
 This tool has been written in 4 (to be 5) different lanaguages and/or runtimes. Each with it's own `Dockerfile`.
