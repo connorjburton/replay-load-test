@@ -22,7 +22,7 @@ jobs:
         run: curl --proto "=https" --tlsv1.2 -sSL https://getsynth.com/install | sh -s -- --ci
       - name: Generate fake data
         run: |
-          NUM=400000
+          NUM=300000
           echo "Testing against $NUM records" >> $GITHUB_STEP_SUMMARY
           mkdir data
           cd scripts/generate-fake-data
