@@ -1,4 +1,8 @@
-FROM rust:1.67
-WORKDIR /app
+FROM rust:1.67 as builder
+WORKDIR /usr/src/replay-load-test
 COPY . .
-ENTRYPOINT cargo run --release -q
+RUN cargo build --release
+
+FROM debian:bullseye-slim
+COPY --from=builder /usr/src/replay-load-test/target/release/replay-load-test /usr/local/bin/replay-load-test
+CMD ["replay-load-test"]

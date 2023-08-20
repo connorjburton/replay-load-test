@@ -4,4 +4,4 @@ WORKDIR /app
 
 COPY . .
 
-CMD ["bun", "run", "bun/index.ts"]
+CMD ["time", "-v", "bun", "run", "bun/index.ts"]
