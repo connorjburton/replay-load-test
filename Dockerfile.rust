@@ -4,5 +4,6 @@ COPY . .
 RUN cargo build --release
 
 FROM debian:bullseye-slim
+WORKDIR /app
 COPY --from=builder /usr/src/replay-load-test/target/release/replay-load-test /usr/local/bin/replay-load-test
-CMD ["replay-load-test"]
+CMD ["time -v replay-load-test"]
