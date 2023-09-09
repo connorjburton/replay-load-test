@@ -1,3 +1,26 @@
+This project was initially to built out a load testing tool based off Elastic APM data, being able to replay requests taken directly from Elastic APM (and in future, other sources).
+
+After working on this tooling, it made more sense to take advantage of existing tools such as [k6](https://k6.io), specifically their [har-to-k6](https://github.com/grafana/har-to-k6) converter.
+
+This project pivoted to become documentation and examples of how to transform your Elastic APM data into a k6 script by converting it to a [HAR](www.softwareishard.com/blog/har-12-spec) file via [jq](https://jqlang.github.io/jq/) and finally into a k6 script via [har-to-k6](https://github.com/grafana/har-to-k6).
+
+```mermaid
+flowchart LR
+    A[/APM Data/] --> B[jq]
+    B --> C[/HAR/]
+    C --> E[har-to-k6]
+    E --> F[/k6 script/]
+```
+
+More documentation to come, but for now, the basic instructions are:
+
+1. Export transaction APM data into JSON
+2. `APM_DATA_FILE=apm-data.json`
+3. `HAR_DESTINATION_FILE=apm-data.har`
+4. `K6_DESTINATION_FILE=k6-script.js`
+5. `cat $APM_DATA_FILE | jq '{ log: { version: "1.2", creator: { name: "Your Name", version: "1.0" }, entries: [ .[] | { startedDateTime: .["@timestamp"], time: 0, request: { method: .http.request.method, url: .request, httpVersion: "HTTP/1.1", cookies: [], headers: .http.request.headers | to_entries | map(.name = .key | del(.key)), queryString: [], headersSize: 0, bodySize: 0 }, response: { status: .status, statusText: "OK", httpVersion: "HTTP/1.1", cookies: [], headers: [], content: { size: .bytes, mimeType: "application/octet-stream" }, redirectURL: "", headersSize: 0, bodySize: 0 }, cache: {}, timings: { blocked: 0, dns: -1, connect: -1, send: 0, wait: 0, receive: 0, ssl: -1 }, serverIPAddress: .host, connection: "", comment: "" } ] } }' > $HAR_DESTINATION_FILE`
+6. `npx har-to-k6 $HAR_DESTINATION_FILE -o $K6_DESTINATION_FILE`
+
 # Philosophy
 
 - **Use the appropriate tools.** Choice of languages or dependencies should be chosen to achieve the goals of the project, not based on personal preference.
